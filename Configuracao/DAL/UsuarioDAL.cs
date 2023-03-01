@@ -50,7 +50,7 @@ namespace DAL
             {
                 cn.ConnectionString = Conexao.StringDeConexao;
                 cmd.Connection = cn;
-                cmd.CommandText = @"SELECT Id, Nome, CPF, Email, Ativo FROM Usuario WHERE NomeUsuario = @NomeUsuario";
+                cmd.CommandText = @"SELECT Id, Nome, NomeUsuario, CPF, Email, Ativo FROM Usuario WHERE NomeUsuario = @NomeUsuario";
                 cmd.Parameters.AddWithValue("@NomeUsuario", _nomeUsuario);
                 cmd.CommandType = System.Data.CommandType.Text;
                 cn.Open();
@@ -93,7 +93,7 @@ namespace DAL
             {
                 cn.ConnectionString = Conexao.StringDeConexao;
                 cmd.Connection = cn;
-                cmd.CommandText = "SELECT Id, Nome, CPF, Email, Ativo FROM Usuario";
+                cmd.CommandText = "SELECT Id, Nome, NomeUsuario, CPF, Email, Ativo FROM Usuario";
                 cmd.CommandType = System.Data.CommandType.Text;
                 cn.Open();
 
@@ -112,6 +112,7 @@ namespace DAL
                         usuarios.Add(usuario);
                     }
                 }
+                return usuarios;
 
             }
             catch (Exception ex)
@@ -125,7 +126,7 @@ namespace DAL
                  cn.Close();
             }
 
-            return usuarios;
+            
         }
         public void Alterar(Usuario _usuario)
         {

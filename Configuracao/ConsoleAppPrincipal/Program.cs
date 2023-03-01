@@ -2,6 +2,7 @@
 using DAL;
 using Models;
 using System.Data;
+using System.Data.SqlClient;
 using System.Security.Cryptography.X509Certificates;
 
 namespace ConsoleAppPrincipal
@@ -69,7 +70,7 @@ namespace ConsoleAppPrincipal
 
         //Usuario ___________________________________________________________________________________________________________________________________
 
-        public static void InserirUsuario()
+        public static void InserirUsuario() //Finalizado
         {
             int resp;
             try
@@ -124,17 +125,23 @@ namespace ConsoleAppPrincipal
         }
 
 
-        public static void BuscarUsuario()
+        public static void BuscarUsuario() //Finalizado
         {
             UsuarioBLL usuarioBLL = new UsuarioBLL();
             Usuario usuario = new Usuario();
 
             Console.WriteLine("Informe o nome que deseja buscar: ");
             usuario.NomeUsuario = Console.ReadLine();
-            usuarioBLL.BuscarPorNomeUsuario(usuario.NomeUsuario);
+            usuario = usuarioBLL.BuscarPorNomeUsuario(usuario.NomeUsuario);
+            Console.WriteLine("Id: " + usuario.Id);
+            Console.WriteLine("Nome: " + usuario.Nome);
+            Console.WriteLine("NomeUsuario: " + usuario.NomeUsuario);
+            Console.WriteLine("CPF: " + usuario.CPF);
+            Console.WriteLine("Email: " + usuario.Email);
+            Console.WriteLine("Ativo: " + usuario.Ativo);
 
         }
-        public static void BuscarTodosUsuario()
+        public static void BuscarTodosUsuario() //Finalizado 
         {
             UsuarioBLL usuarioBLL = new UsuarioBLL();
             List<Usuario> usuarios = usuarioBLL.BuscarTodos();
@@ -162,7 +169,7 @@ namespace ConsoleAppPrincipal
 
        // Grupo Usuario _____________________________________________________________________________________________________________________________
 
-        public static void InserirGrupoUsuario()
+        public static void InserirGrupoUsuario() //Finalizar 
         {
             GrupoUsuarioBLL grupoUsuarioBLL = new GrupoUsuarioBLL();
             GrupoUsuario grupoUsuario = new GrupoUsuario();
@@ -175,7 +182,7 @@ namespace ConsoleAppPrincipal
         {
 
         }
-        public static void BuscarTodosGrupoUsuario()
+        public static void BuscarTodosGrupoUsuario() //Finalizar
         {
             GrupoUsuarioBLL grupoUsuarioBLL = new GrupoUsuarioBLL();
             List<GrupoUsuario> grupoUsuarios = grupoUsuarioBLL.BuscarTodos();
@@ -186,7 +193,7 @@ namespace ConsoleAppPrincipal
             }
 
         }
-        public static void AlterarGrupoUsuario()
+        public static void AlterarGrupoUsuario() //Finalizar 
         {
             GrupoUsuarioBLL grupoUsuarioBLL = new GrupoUsuarioBLL();
             GrupoUsuario grupoUsuario = new GrupoUsuario();
@@ -197,7 +204,7 @@ namespace ConsoleAppPrincipal
             grupoUsuario.NomeGrupo = Console.ReadLine();
             grupoUsuarioBLL.Alterar(grupoUsuario);
         }
-        public static void ExcluirGrupoUsuario()
+        public static void ExcluirGrupoUsuario() //Finalizar 
         {
             GrupoUsuarioBLL grupoUsuarioBLL = new GrupoUsuarioBLL();
             GrupoUsuario grupoUsuario = new GrupoUsuario();
@@ -210,7 +217,7 @@ namespace ConsoleAppPrincipal
 
         // Descrição _______________________________________________________________________________________________________________________________
 
-        public static void InserirPermissao()
+        public static void InserirPermissao() //Finalizado
         {
             PermissaoBLL permissaoBLL = new PermissaoBLL();
             Permissao permissao = new Permissao();
@@ -223,7 +230,7 @@ namespace ConsoleAppPrincipal
         {
 
         }
-        public static void BuscarTodosPermissao()
+        public static void BuscarTodosPermissao() //Finalizado
         {
             PermissaoBLL permissaoBLL = new PermissaoBLL();
             List<Permissao>permissoes = permissaoBLL.BuscarTodos();
@@ -233,7 +240,7 @@ namespace ConsoleAppPrincipal
                 Console.WriteLine("Descrição: " + permissao.Descricao);
             }
         }
-        public static void AlterarPermissao()
+        public static void AlterarPermissao() //Finalizado 
         {
             PermissaoBLL permissaoBLL = new PermissaoBLL();
             Permissao permissao = new Permissao();
@@ -245,7 +252,7 @@ namespace ConsoleAppPrincipal
             permissaoBLL.Alterar(permissao);
 
         }
-        public static void ExcluirPermissao()
+        public static void ExcluirPermissao() //Finalizado
         {
             PermissaoBLL permissaoBLL = new PermissaoBLL();
             Permissao permissao = new Permissao();
