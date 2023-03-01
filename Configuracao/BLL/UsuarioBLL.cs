@@ -40,9 +40,11 @@ namespace BLL
         {
 
         }
-        public void Excluir(int _id)
+        public void Excluir(Usuario _excluir)
         {
 
+            UsuarioDAL usuarioDal = new UsuarioDAL();
+            usuarioDal.Excluir(_excluir);
         }
         public List<Usuario> BuscarTodos()
         {

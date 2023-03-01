@@ -52,10 +52,10 @@ namespace DAL
                 cn.ConnectionString = Conexao.StringDeConexao;
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = cn;
-                cmd.CommandText = @"UPDATE GrupoUsuario set GrupoUsuario = @NomeGrupo where id = @id;";
+                cmd.CommandText = @"UPDATE GrupoUsuario set GrupoUsuario = @GrupoUsuario where id = @id;";
 
                 cmd.CommandType = System.Data.CommandType.Text;
-                cmd.Parameters.AddWithValue("@Descricao", _alterar.NomeGrupo);
+                cmd.Parameters.AddWithValue("@GrupoUsuario", _alterar.NomeGrupo);
                 cmd.Parameters.AddWithValue("@id", _alterar.Id);
 
 
@@ -83,7 +83,7 @@ namespace DAL
                 cn.ConnectionString = Conexao.StringDeConexao;
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = cn;
-                cmd.CommandText = @"Delete From Permissao where id = @id;";
+                cmd.CommandText = @"Delete From GrupoUsuario where id = @id;";
 
                 cmd.CommandType = System.Data.CommandType.Text;
                 //  cmd.Parameters.AddWithValue("@Descricao", _excluir.Descricao);

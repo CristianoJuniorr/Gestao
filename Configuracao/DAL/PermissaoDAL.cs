@@ -112,6 +112,45 @@ namespace DAL
             }
         }
 
+        public Permissao BuscarPorNomeDescricao(string _nomeDescricao)
+        {
+            Permissao permissao = new Permissao();
+            SqlConnection cn = new SqlConnection();
+            SqlCommand cmd = new SqlCommand();
+
+            try
+            {
+                cn.ConnectionString = Conexao.StringDeConexao;
+                cmd.Connection = cn;
+                cmd.CommandText = @"SELECT Id, Descricao FROM Permissao WHERE Descricao like @Descricao";
+                cmd.Parameters.AddWithValue("@Descricao", "%" + _nomeDescricao + "%");
+                cmd.CommandType = System.Data.CommandType.Text;
+                cn.Open();
+                using (SqlDataReader rd = cmd.ExecuteReader())
+                {
+                    if (rd.Read())
+                    {
+                        permissao = new Permissao();
+                        permissao.Id = Convert.ToInt32(rd["Id"]);
+                        permissao.Descricao = rd["Descricao"].ToString();
+
+                    }
+                    else
+                    {
+                        throw new Exception("Descrição não encontrada.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw; new Exception("Ocoreu um erro ao tentar fazer busca de Descrição ");
+            }
+
+            return permissao;
+
+        }
+
         public List<Permissao> BuscarTodos()
         {
             List<Permissao> permissaos = new List<Permissao>();

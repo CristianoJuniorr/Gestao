@@ -163,7 +163,12 @@ namespace ConsoleAppPrincipal
         }
         public static void ExcluirUsuario()
         {
+            UsuarioBLL usuarioBLL = new UsuarioBLL();
+            Usuario usuario = new Usuario();
 
+            Console.WriteLine("Informe o Id que deseja excluir: ");
+            usuario.Id = Convert.ToInt32(Console.ReadLine());
+            usuarioBLL.Excluir(usuario);
         }
 
 
@@ -228,7 +233,15 @@ namespace ConsoleAppPrincipal
         }
         public static void BuscarPermissao()
         {
+            PermissaoBLL permissaoBLL = new PermissaoBLL();
+            Permissao permissao = new Permissao();
 
+            Console.WriteLine("Informe o nome que deseja buscar: ");
+            permissao.Descricao = Console.ReadLine();
+            permissao = permissaoBLL.BuscarPorNomeDescricao(permissao.Descricao);
+            Console.WriteLine("Id: " + permissao.Id);
+            Console.WriteLine("Descricao: " + permissao.Descricao);
+           
         }
         public static void BuscarTodosPermissao() //Finalizado
         {

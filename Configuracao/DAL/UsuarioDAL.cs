@@ -132,9 +132,37 @@ namespace DAL
         {
 
         }
-        public void Excluir(int _id)
+        public void Excluir(Usuario _excluir)
         {
 
+            SqlConnection cn = new SqlConnection();
+
+            try
+            {
+                cn.ConnectionString = Conexao.StringDeConexao;
+                SqlCommand cmd = new SqlCommand();
+
+                cmd.Connection = cn;
+                cmd.CommandText = @"Delete From Usuario where id = @id;";
+
+                cmd.CommandType = System.Data.CommandType.Text;
+                //  cmd.Parameters.AddWithValue("@Descricao", _excluir.Descricao);
+                cmd.Parameters.AddWithValue("@id", _excluir.Id);
+
+
+                cn.Open();
+                cmd.ExecuteScalar();
+
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocorreu um erro ao tentar excluir um Usuario no banco: " + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
         }
              
 

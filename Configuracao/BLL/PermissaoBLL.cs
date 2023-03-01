@@ -45,6 +45,16 @@ namespace BLL
             permissaoDal.Excluir(_excluir);
         }
 
+        public Permissao BuscarPorNomeDescricao(string _nomeDescricao)
+        {
+            if (String.IsNullOrEmpty(_nomeDescricao))
+                throw new Exception("Informe uma descrição válida.");
+
+            PermissaoDal permissaoDAL = new PermissaoDal();
+            return permissaoDAL.BuscarPorNomeDescricao(_nomeDescricao);
+
+        }
+
         public List<Permissao> BuscarTodos()
         {
             PermissaoDal permissaoDAL = new PermissaoDal();
