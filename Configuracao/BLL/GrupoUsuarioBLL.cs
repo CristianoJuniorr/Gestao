@@ -41,6 +41,16 @@ namespace BLL
             grupoUsuarioDal.Excluir(_excluir);
         }
 
+        public GrupoUsuario BuscarPorNomeGrupoUsuario(string _nomeGrupoUsuario)
+        {
+            if (String.IsNullOrEmpty(_nomeGrupoUsuario))
+                throw new Exception("Informe um grupo válido.");
+
+            GrupoUsuarioDal grupoUsuarioDAL = new GrupoUsuarioDal();
+            return grupoUsuarioDAL.BuscarPorNomeGrupoUsuario(_nomeGrupoUsuario);
+
+        }
+
         public List<GrupoUsuario> BuscarTodos()
         {
             GrupoUsuarioDal grupoUsuarioDAL = new GrupoUsuarioDal();

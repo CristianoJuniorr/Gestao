@@ -105,6 +105,45 @@ namespace DAL
             }
         }
 
+        public GrupoUsuario BuscarPorNomeGrupoUsuario(string _nomeGrupoUsuario)
+        {
+            GrupoUsuario grupoUsuario = new GrupoUsuario();
+            SqlConnection cn = new SqlConnection();
+            SqlCommand cmd = new SqlCommand();
+
+            try
+            {
+                cn.ConnectionString = Conexao.StringDeConexao;
+                cmd.Connection = cn;
+                cmd.CommandText = @"SELECT Id, GrupoUsuario FROM GrupoUsuario WHERE GrupoUsuario like @GrupoUsuario";
+                cmd.Parameters.AddWithValue("@GrupoUsuario", "%" + _nomeGrupoUsuario + "%");
+                cmd.CommandType = System.Data.CommandType.Text;
+                cn.Open();
+                using (SqlDataReader rd = cmd.ExecuteReader())
+                {
+                    if (rd.Read())
+                    {
+                        grupoUsuario = new GrupoUsuario();
+                        grupoUsuario.Id = Convert.ToInt32(rd["Id"]);
+                        grupoUsuario.NomeGrupo = rd["GrupoUsuario"].ToString();
+
+                    }
+                    else
+                    {
+                        throw new Exception("Grupo não encontrado.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw; new Exception("Ocoreu um erro ao tentar fazer busca de Descrição ");
+            }
+
+            return grupoUsuario;
+
+        }
+
         public List<GrupoUsuario> BuscarTodos()
         {
             List<GrupoUsuario> grupoUsuarios = new List<GrupoUsuario>();

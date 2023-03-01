@@ -185,6 +185,14 @@ namespace ConsoleAppPrincipal
         }
         public static void BuscarGrupoUsuario()
         {
+            GrupoUsuarioBLL grupoUsuarioBLL = new GrupoUsuarioBLL();
+            GrupoUsuario grupoUsuario = new GrupoUsuario();
+
+            Console.WriteLine("Informe o nome que deseja buscar: ");
+            grupoUsuario.NomeGrupo = Console.ReadLine();
+            grupoUsuario = grupoUsuarioBLL.BuscarPorNomeGrupoUsuario(grupoUsuario.NomeGrupo);
+            Console.WriteLine("Id: " + grupoUsuario.Id);
+            Console.WriteLine("GrupoUsuario: " + grupoUsuario.NomeGrupo);
 
         }
         public static void BuscarTodosGrupoUsuario() //Finalizar
