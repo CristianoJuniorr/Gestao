@@ -36,9 +36,16 @@ namespace BLL
             return usuarioDAL.BuscarPorNomeUsuario(_nomeUsuario);
            
         }
-        public void Alterar(Usuario _usuairo)
+        public void Alterar(Usuario _alterar)
         {
+            if (_alterar.Senha.Length <= 3 || _alterar.Senha.Length >= 50)
+                throw new Exception("A senha deve ter mais de três caracteres.");
 
+
+            //TODO: Validar se o nome é menor ou igual a 3
+
+            UsuarioDAL usuarioDal = new UsuarioDAL();
+            usuarioDal.Alterar(_alterar);
         }
         public void Excluir(Usuario _excluir)
         {
