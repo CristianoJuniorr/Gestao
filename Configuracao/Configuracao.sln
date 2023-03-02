@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL", "DAL\DAL.csproj", "{CA4A5AE0-701A-427E-90FC-955F333372D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{C5F43385-253B-4F39-8FE5-2DB75828DA24}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BLL", "BLL\BLL.csproj", "{C5F43385-253B-4F39-8FE5-2DB75828DA24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsAppPrincipal", "WindowsFormsAppPrincipal\WindowsFormsAppPrincipal.csproj", "{40469256-C69F-444A-8EF8-960E58AB7D75}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{C5F43385-253B-4F39-8FE5-2DB75828DA24}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5F43385-253B-4F39-8FE5-2DB75828DA24}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5F43385-253B-4F39-8FE5-2DB75828DA24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40469256-C69F-444A-8EF8-960E58AB7D75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40469256-C69F-444A-8EF8-960E58AB7D75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40469256-C69F-444A-8EF8-960E58AB7D75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40469256-C69F-444A-8EF8-960E58AB7D75}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
