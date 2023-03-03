@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{40469256-C69F-444A-8EF8-960E58AB7D75}</ProjectGuid>
+    <ProjectGuid>{0DBCF60F-7889-4220-9F2E-8AEBD4940EA1}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>WindowsFormsAppPrincipal</RootNamespace>
     <AssemblyName>WindowsFormsAppPrincipal</AssemblyName>
@@ -65,6 +65,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -81,13 +82,37 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">
-      <Project>{c5f43385-253b-4f39-8fe5-2db75828da24}</Project>
+      <Project>{ebe888aa-f615-46c5-aa1e-989a53ffec17}</Project>
       <Name>BLL</Name>
     </ProjectReference>
     <ProjectReference Include="..\Models\Models.csproj">
-      <Project>{9d7b689e-00d9-4c58-9f1a-f58787ffb737}</Project>
+      <Project>{5d46256c-0908-40b1-8c01-9e3b6ee0271e}</Project>
       <Name>Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fundo Login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\istockphoto-1134068329-612x612.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\macos-monterey-1366x768_897687-mm-90.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Teste.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Login01.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Login02.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\azul.png Login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\azul.png Login1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

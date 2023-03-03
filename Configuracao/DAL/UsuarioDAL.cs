@@ -1,4 +1,6 @@
 ﻿using Models;
+using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 
 namespace DAL
@@ -137,11 +139,13 @@ namespace DAL
                 cn.ConnectionString = Conexao.StringDeConexao;
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = cn;
-                cmd.CommandText = @"UPDATE Usuario set Senha = @Senha where id = @id;";
+                cmd.CommandText = @"UPDATE Usuario set NomeUsuario, Email, Senha = @NomeUsuario, @Email, @Senha where Id = @id;";
 
                 cmd.CommandType = System.Data.CommandType.Text;
-                cmd.Parameters.AddWithValue("@Senha", _alterar.Senha);
                 cmd.Parameters.AddWithValue("@id", _alterar.Id);
+                cmd.Parameters.AddWithValue("@NomeUsuario", _alterar.NomeUsuario);
+                cmd.Parameters.AddWithValue("@Email", _alterar.Email);
+                cmd.Parameters.AddWithValue("@Senha", _alterar.Senha);
 
 
                 cn.Open();
