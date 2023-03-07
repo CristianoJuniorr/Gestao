@@ -79,6 +79,7 @@
             this.grupoDeUsuáriosToolStripMenuItem.Name = "grupoDeUsuáriosToolStripMenuItem";
             this.grupoDeUsuáriosToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.grupoDeUsuáriosToolStripMenuItem.Text = "Grupo de usuários";
+            this.grupoDeUsuáriosToolStripMenuItem.Click += new System.EventHandler(this.grupoDeUsuáriosToolStripMenuItem_Click);
             // 
             // clientesToolStripMenuItem
             // 
@@ -96,6 +97,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::WindowsFormsAppPrincipal.Properties.Resources.Foto_Panel_de_Cadastro;
             this.ClientSize = new System.Drawing.Size(1348, 721);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;

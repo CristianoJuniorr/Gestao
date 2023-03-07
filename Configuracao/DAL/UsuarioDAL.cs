@@ -23,7 +23,7 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@Nome", _usuario.Nome);
                 cmd.Parameters.AddWithValue("@NomeUsuario", _usuario.NomeUsuario);
                 cmd.Parameters.AddWithValue("@CPF", _usuario.CPF);
-                cmd.Parameters.AddWithValue("@Email",_usuario.Email);
+                cmd.Parameters.AddWithValue("@Email", _usuario.Email);
                 cmd.Parameters.AddWithValue("@Senha", _usuario.Senha);
                 cmd.Parameters.AddWithValue("@Ativo", _usuario.Ativo);
 
@@ -34,17 +34,17 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocorreu um erro ao tentar inserir um usuario no banco: "+ ex.Message);
+                throw new Exception("Ocorreu um erro ao tentar inserir um usuario no banco: " + ex.Message);
             }
             finally
             {
                 cn.Close();
             }
         }
-      
+
         public Usuario BuscarPorNomeUsuario(string _nomeUsuario)
         {
-          Usuario usuario = new Usuario();
+            Usuario usuario = new Usuario();
             SqlConnection cn = new SqlConnection();
             SqlCommand cmd = new SqlCommand();
 
@@ -52,8 +52,8 @@ namespace DAL
             {
                 cn.ConnectionString = Conexao.StringDeConexao;
                 cmd.Connection = cn;
-                cmd.CommandText = @"SELECT Id, Nome, NomeUsuario, CPF, Email, Ativo FROM Usuario WHERE NomeUsuario = @NomeUsuario";
-                cmd.Parameters.AddWithValue("@NomeUsuario", _nomeUsuario);
+                cmd.CommandText = @"SELECT Id, Nome, NomeUsuario, CPF, Email, Ativo FROM Usuario WHERE NomeUsuario like @NomeUsuario";
+                cmd.Parameters.AddWithValue("@NomeUsuario", "%" + _nomeUsuario + "%");
                 cmd.CommandType = System.Data.CommandType.Text;
                 cn.Open();
                 using (SqlDataReader rd = cmd.ExecuteReader())
@@ -119,16 +119,16 @@ namespace DAL
             }
             catch (Exception ex)
             {
-               // Console.WriteLine(String.Format("Ocorreu o seguinte erro: {0} ao tentar buscar no banco "));
+                // Console.WriteLine(String.Format("Ocorreu o seguinte erro: {0} ao tentar buscar no banco "));
 
                 throw new Exception("Ocorreu um erro ao tentar buscar todos os usuários: ");
             }
             finally
             {
-                 cn.Close();
+                cn.Close();
             }
 
-            
+
         }
         public void Alterar(Usuario _alterar)
         {
@@ -194,7 +194,7 @@ namespace DAL
                 cn.Close();
             }
         }
-             
+
 
     }
 }

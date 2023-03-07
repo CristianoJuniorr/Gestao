@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormBuscarGrupoUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBuscarGrupoUsuario.Designer.cs">
+      <DependentUpon>FormBuscarGrupoUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormBuscarUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +66,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormBuscarGrupoUsuario.resx">
+      <DependentUpon>FormBuscarGrupoUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormBuscarUsuario.resx">
       <DependentUpon>FormBuscarUsuario.cs</DependentUpon>
     </EmbeddedResource>
@@ -125,6 +134,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\azul.png Login1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Foto Panel de Cadastro.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Foto Panel de Cadastro1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Foto Panel de Cadastro2.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
