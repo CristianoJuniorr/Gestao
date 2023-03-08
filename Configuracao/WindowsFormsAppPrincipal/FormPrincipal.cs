@@ -4,6 +4,7 @@ namespace WindowsFormsAppPrincipal
 {
     public partial class FormPrincipal : Form
     {
+
         public FormPrincipal()
         {
             InitializeComponent();
@@ -25,6 +26,6 @@ namespace WindowsFormsAppPrincipal
             }
         }
 
- 
+
     }
 }

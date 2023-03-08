@@ -23,6 +23,12 @@ namespace WindowsFormsAppPrincipal
             usuarioBindingSource.DataSource = usuario.BuscarPorNomeUsuario(textBox1.Text);
         }
 
-   
+        private void button3_Click(object sender, EventArgs e)
+        {
+            using (FormAdicionarUsuario frm = new FormAdicionarUsuario())
+            {
+                frm.ShowDialog();
+            }
+        }
     }
 }

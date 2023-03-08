@@ -29,5 +29,10 @@ namespace WindowsFormsAppPrincipal
             GrupoUsuarioBLL grupoUsuarioBLL = new GrupoUsuarioBLL();
             grupoUsuariosBindingSource.DataSource = grupoUsuarioBLL.BuscarTodos();
         }
+
+        private void FormBuscarGrupoUsuario_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
