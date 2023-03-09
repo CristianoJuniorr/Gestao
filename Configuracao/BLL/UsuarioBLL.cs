@@ -40,7 +40,7 @@ namespace BLL
         public void Alterar(Usuario _alterar)
         {
             if (_alterar.Senha.Length <= 3 || _alterar.Senha.Length >= 50)
-                throw new Exception("A senha deve ter mais de três caracteres.");
+                throw new Exception("Ocorreu um erro ao tentar alterar um usuário.");
 
 
             //TODO: Validar se o nome é menor ou igual a 3

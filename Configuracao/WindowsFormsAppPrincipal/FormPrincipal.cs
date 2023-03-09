@@ -15,7 +15,9 @@ namespace WindowsFormsAppPrincipal
             using (FormBuscarUsuario frm = new FormBuscarUsuario()) 
             {
                 frm.ShowDialog();
+             
             }
+            
         }
 
         private void grupoDeUsuáriosToolStripMenuItem_Click(object sender, System.EventArgs e)
@@ -23,9 +25,12 @@ namespace WindowsFormsAppPrincipal
             using (FormBuscarGrupoUsuario frm = new FormBuscarGrupoUsuario())
             {
                 frm.ShowDialog();
+             
             }
-        }
+            
 
+        }
+        
 
     }
 }

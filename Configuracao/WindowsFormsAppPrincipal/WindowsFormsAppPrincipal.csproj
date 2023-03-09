@@ -52,6 +52,12 @@
     <Compile Include="FormAdicionarUsuario.Designer.cs">
       <DependentUpon>FormAdicionarUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormAlterarUsuarioi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAlterarUsuarioi.Designer.cs">
+      <DependentUpon>FormAlterarUsuarioi.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormBuscarGrupoUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +80,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormAdicionarUsuario.resx">
       <DependentUpon>FormAdicionarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAlterarUsuarioi.resx">
+      <DependentUpon>FormAlterarUsuarioi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormBuscarGrupoUsuario.resx">
       <DependentUpon>FormBuscarGrupoUsuario.cs</DependentUpon>
@@ -155,6 +164,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Foto Panel de Cadastro3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Foto Panel de Cadastro4.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

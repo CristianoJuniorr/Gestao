@@ -139,14 +139,15 @@ namespace DAL
                 cn.ConnectionString = Conexao.StringDeConexao;
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = cn;
-                cmd.CommandText = @"UPDATE Usuario set NomeUsuario, Email, Senha = @NomeUsuario, @Email, @Senha where Id = @id;";
+                cmd.CommandText = @"UPDATE Usuario set Nome = @Nome, NomeUsuario = @NomeUsuario, Email = @Email, Senha = @Senha, Ativo = @Ativo where Id = @Id;";
 
                 cmd.CommandType = System.Data.CommandType.Text;
-                cmd.Parameters.AddWithValue("@id", _alterar.Id);
+                cmd.Parameters.AddWithValue("@Id", _alterar.Id);
+                cmd.Parameters.AddWithValue("@Nome", _alterar.Nome);
                 cmd.Parameters.AddWithValue("@NomeUsuario", _alterar.NomeUsuario);
                 cmd.Parameters.AddWithValue("@Email", _alterar.Email);
                 cmd.Parameters.AddWithValue("@Senha", _alterar.Senha);
-
+                cmd.Parameters.AddWithValue("@Ativo", _alterar.Ativo);
 
                 cn.Open();
                 cmd.ExecuteScalar();
