@@ -30,7 +30,10 @@ namespace WindowsFormsAppPrincipal
             
 
         }
-        
 
+        private void FormPrincipal_Load(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }

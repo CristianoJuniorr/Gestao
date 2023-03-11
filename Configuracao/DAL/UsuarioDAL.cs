@@ -110,8 +110,12 @@ namespace DAL
                         usuario.CPF = rd["CPF"].ToString();
                         usuario.Email = rd["Email"].ToString();
                         usuario.Ativo = Convert.ToBoolean(rd["Ativo"]);
-
+                        
+                        GrupoUsuarioDal grupoUsuarioDal = new GrupoUsuarioDal();
+                        usuario.GrupoUsuarios = grupoUsuarioDal.BuscarPorIdUsuario(usuario.Id);
                         usuarios.Add(usuario);
+
+                     
                     }
                 }
                 return usuarios;
@@ -121,7 +125,7 @@ namespace DAL
             {
                 // Console.WriteLine(String.Format("Ocorreu o seguinte erro: {0} ao tentar buscar no banco "));
 
-                throw new Exception("Ocorreu um erro ao tentar buscar todos os usuários: ");
+                throw new Exception("Ocorreu um erro ao tentar buscar todos os usuários: "+ ex.Message);
             }
             finally
             {

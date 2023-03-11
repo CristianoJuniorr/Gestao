@@ -47,8 +47,6 @@
             this.button4 = new System.Windows.Forms.Button();
             this.buttonAdicionarGrupo = new System.Windows.Forms.Button();
             this.buttonExcluirGrupo = new System.Windows.Forms.Button();
-            this.buttonBuscarGrupo = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grupoUsuariosDataGridView)).BeginInit();
@@ -246,38 +244,16 @@
             this.buttonExcluirGrupo.Text = "Excluir";
             this.buttonExcluirGrupo.UseVisualStyleBackColor = true;
             // 
-            // buttonBuscarGrupo
-            // 
-            this.buttonBuscarGrupo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonBuscarGrupo.Location = new System.Drawing.Point(1200, 114);
-            this.buttonBuscarGrupo.Name = "buttonBuscarGrupo";
-            this.buttonBuscarGrupo.Size = new System.Drawing.Size(75, 23);
-            this.buttonBuscarGrupo.TabIndex = 1;
-            this.buttonBuscarGrupo.Text = "Buscar";
-            this.buttonBuscarGrupo.UseVisualStyleBackColor = true;
-            this.buttonBuscarGrupo.Click += new System.EventHandler(this.buttonBuscarGrupo_Click);
-            // 
-            // textBox2
-            // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Location = new System.Drawing.Point(1071, 115);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(123, 22);
-            this.textBox2.TabIndex = 5;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
-            // 
             // FormBuscarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::WindowsFormsAppPrincipal.Properties.Resources.Foto_Panel_de_Cadastro1;
             this.ClientSize = new System.Drawing.Size(1454, 692);
-            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.grupoUsuariosDataGridView);
             this.Controls.Add(this.usuarioDataGridView);
             this.Controls.Add(this.buttonExcluirGrupo);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.buttonBuscarGrupo);
             this.Controls.Add(this.buttonAdicionarGrupo);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -314,7 +290,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
-        private System.Windows.Forms.Button buttonBuscarGrupo;
-        private System.Windows.Forms.TextBox textBox2;
     }
 }

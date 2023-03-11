@@ -168,5 +168,8 @@
   <ItemGroup>
     <None Include="Resources\Foto Panel de Cadastro4.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Foto Panel de Cadastro5.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

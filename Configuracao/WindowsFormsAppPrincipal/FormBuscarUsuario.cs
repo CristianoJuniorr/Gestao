@@ -40,18 +40,6 @@ namespace WindowsFormsAppPrincipal
 
         }
 
-        private void buttonBuscarGrupo_Click(object sender, EventArgs e)
-        {
-            GrupoUsuarioBLL grupousuarioBLL = new GrupoUsuarioBLL();
-            grupoUsuariosBindingSource.DataSource = grupousuarioBLL.BuscarTodos();
-        }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-                GrupoUsuarioBLL grupousuario = new GrupoUsuarioBLL();
-                grupoUsuariosBindingSource.DataSource = grupousuario.BuscarPorNomeGrupoUsuario(textBox2.Text);
-            
-
-        }
     }
 }

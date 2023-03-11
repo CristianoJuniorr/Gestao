@@ -63,9 +63,6 @@
             // 
             // textBoxAlterarUsuarioID
             // 
-            this.textBoxAlterarUsuarioID.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxAlterarUsuarioID.Location = new System.Drawing.Point(471, 240);
             this.textBoxAlterarUsuarioID.Name = "textBoxAlterarUsuarioID";
             this.textBoxAlterarUsuarioID.Size = new System.Drawing.Size(121, 22);
