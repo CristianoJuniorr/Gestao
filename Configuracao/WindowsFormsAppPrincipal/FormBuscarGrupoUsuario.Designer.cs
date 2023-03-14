@@ -92,6 +92,7 @@
             this.button3.TabIndex = 3;
             this.button3.Text = "Adicionar";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -126,7 +127,7 @@
             this.grupoUsuariosDataGridView.ReadOnly = true;
             this.grupoUsuariosDataGridView.RowHeadersWidth = 51;
             this.grupoUsuariosDataGridView.RowTemplate.Height = 24;
-            this.grupoUsuariosDataGridView.Size = new System.Drawing.Size(821, 384);
+            this.grupoUsuariosDataGridView.Size = new System.Drawing.Size(821, 449);
             this.grupoUsuariosDataGridView.TabIndex = 6;
             // 
             // dataGridViewTextBoxColumn2
@@ -170,7 +171,7 @@
             this.permissoesDataGridView.ReadOnly = true;
             this.permissoesDataGridView.RowHeadersWidth = 51;
             this.permissoesDataGridView.RowTemplate.Height = 24;
-            this.permissoesDataGridView.Size = new System.Drawing.Size(464, 384);
+            this.permissoesDataGridView.Size = new System.Drawing.Size(464, 449);
             this.permissoesDataGridView.TabIndex = 7;
             // 
             // dataGridViewTextBoxColumn3
@@ -226,7 +227,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::WindowsFormsAppPrincipal.Properties.Resources.Foto_Panel_de_Cadastro2;
-            this.ClientSize = new System.Drawing.Size(1345, 552);
+            this.ClientSize = new System.Drawing.Size(1345, 617);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button7);
@@ -237,10 +238,13 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1363, 599);
             this.Name = "FormBuscarGrupoUsuario";
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestão Grupo Usuário ";
-            this.Load += new System.EventHandler(this.FormBuscarGrupoUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grupoUsuariosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grupoUsuariosDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.permissoesBindingSource)).EndInit();

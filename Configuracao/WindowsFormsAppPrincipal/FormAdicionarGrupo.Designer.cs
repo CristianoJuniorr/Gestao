@@ -1,0 +1,140 @@
+﻿namespace WindowsFormsAppPrincipal
+{
+    partial class FormAdicionarGrupo
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            this.buttonSavarAdicionarGrupo = new System.Windows.Forms.Button();
+            this.buttonCancelarAdicionarGrupo = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1AdicionarGrupo = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.grupoUsuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.grupoUsuarioBindingSource)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // buttonSavarAdicionarGrupo
+            // 
+            this.buttonSavarAdicionarGrupo.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.buttonSavarAdicionarGrupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSavarAdicionarGrupo.Location = new System.Drawing.Point(229, 257);
+            this.buttonSavarAdicionarGrupo.Name = "buttonSavarAdicionarGrupo";
+            this.buttonSavarAdicionarGrupo.Size = new System.Drawing.Size(103, 45);
+            this.buttonSavarAdicionarGrupo.TabIndex = 0;
+            this.buttonSavarAdicionarGrupo.Text = "Salvar";
+            this.buttonSavarAdicionarGrupo.UseVisualStyleBackColor = true;
+            this.buttonSavarAdicionarGrupo.Click += new System.EventHandler(this.buttonSavarAdicionarGrupo_Click);
+            // 
+            // buttonCancelarAdicionarGrupo
+            // 
+            this.buttonCancelarAdicionarGrupo.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.buttonCancelarAdicionarGrupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancelarAdicionarGrupo.Location = new System.Drawing.Point(351, 257);
+            this.buttonCancelarAdicionarGrupo.Name = "buttonCancelarAdicionarGrupo";
+            this.buttonCancelarAdicionarGrupo.Size = new System.Drawing.Size(103, 45);
+            this.buttonCancelarAdicionarGrupo.TabIndex = 1;
+            this.buttonCancelarAdicionarGrupo.Text = "Cancelar";
+            this.buttonCancelarAdicionarGrupo.UseVisualStyleBackColor = true;
+            this.buttonCancelarAdicionarGrupo.Click += new System.EventHandler(this.buttonCancelarAdicionarGrupo_Click);
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Transparent;
+            this.label1.Location = new System.Drawing.Point(17, 152);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(168, 26);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Nome do grupo:";
+            // 
+            // textBox1AdicionarGrupo
+            // 
+            this.textBox1AdicionarGrupo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1AdicionarGrupo.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.grupoUsuarioBindingSource, "NomeGrupo", true));
+            this.textBox1AdicionarGrupo.Location = new System.Drawing.Point(213, 157);
+            this.textBox1AdicionarGrupo.Name = "textBox1AdicionarGrupo";
+            this.textBox1AdicionarGrupo.Size = new System.Drawing.Size(320, 22);
+            this.textBox1AdicionarGrupo.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label2.Location = new System.Drawing.Point(197, 40);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(314, 39);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Cadastro de Grupo ";
+            // 
+            // grupoUsuarioBindingSource
+            // 
+            this.grupoUsuarioBindingSource.DataSource = typeof(Models.GrupoUsuario);
+            // 
+            // FormAdicionarGrupo
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::WindowsFormsAppPrincipal.Properties.Resources.Foto_Panel_de_Cadastro6;
+            this.ClientSize = new System.Drawing.Size(705, 362);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.textBox1AdicionarGrupo);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.buttonCancelarAdicionarGrupo);
+            this.Controls.Add(this.buttonSavarAdicionarGrupo);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "FormAdicionarGrupo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "FormAdioionarGrupo";
+            this.Load += new System.EventHandler(this.FormAdicionarGrupo_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.grupoUsuarioBindingSource)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Button buttonSavarAdicionarGrupo;
+        private System.Windows.Forms.Button buttonCancelarAdicionarGrupo;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox1AdicionarGrupo;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.BindingSource grupoUsuarioBindingSource;
+    }
+}

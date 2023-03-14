@@ -20,22 +20,35 @@ namespace WindowsFormsAppPrincipal
             InitializeComponent();
         }
 
- 
+    
 
         private void button1_Click(object sender, EventArgs e)
         {
             UsuarioBLL usuarioBLL = new UsuarioBLL();
-            Usuario usuario = new Usuario();
-            usuario.Nome = textBoxNome.Text;
-            usuario.NomeUsuario = textBoxNomeUsuario.Text;
-            usuario.CPF = textBoxCPF.Text;
-            usuario.Email = textBoxEmail.Text;
-            usuario.Senha = textBox5.Text;
-            usuario.Ativo = checkBox1.Checked;
 
 
-            usuarioBLL.Inserir(usuario);
+            try
+            {
+                usuarioBindingSource.EndEdit();
+                usuarioBLL.Inserir((Usuario)usuarioBindingSource.Current);
+                MessageBox.Show("Cadastrado com sucesso!");
+                Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro ao tentar cadastrar um novo usuário."+ex.Message);
+            }
+         
+        }
+
+        private void buttonCancelarUsuario_Click(object sender, EventArgs e)
+        {
             Close();
+        }
+
+        private void FormAdicionarUsuario_Load(object sender, EventArgs e)
+        {
+            usuarioBindingSource.AddNew();
         }
     }
 }

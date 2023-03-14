@@ -35,6 +35,9 @@ namespace WindowsFormsAppPrincipal
             Close();
         }
 
-  
+        private void buttonCancelarAlteraçãoUsuario_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

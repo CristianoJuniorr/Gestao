@@ -121,20 +121,23 @@
   <data name="Foto Panel de Cadastro1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Foto Panel de Cadastro1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Foto Panel de Cadastro2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Foto Panel de Cadastro2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="istockphoto-1134068329-612x612" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\istockphoto-1134068329-612x612.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Fundo Login" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Fundo Login.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Foto Panel de Cadastro4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Foto Panel de Cadastro4.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Teste" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Teste.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Login02" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Login02.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Foto Panel de Cadastro5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Foto Panel de Cadastro5.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Foto Panel de Cadastro3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Foto Panel de Cadastro3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -151,13 +154,13 @@
   <data name="Foto Panel de Cadastro" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Foto Panel de Cadastro.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Foto Panel de Cadastro2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Foto Panel de Cadastro2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Foto Panel de Cadastro4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Foto Panel de Cadastro4.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="azul.png Login" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\azul.png Login.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Foto Panel de Cadastro5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Foto Panel de Cadastro5.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Foto Panel de Cadastro6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Foto Panel de Cadastro6.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
