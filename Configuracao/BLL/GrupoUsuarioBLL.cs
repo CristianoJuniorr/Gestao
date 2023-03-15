@@ -14,7 +14,7 @@ namespace BLL
         public void Inserir(GrupoUsuario grupoUsuario)
         {
             if (grupoUsuario.NomeGrupo.Length <= 3 || grupoUsuario.NomeGrupo.Length >= 50)
-                throw new Exception("O nome deve ter mais de três caracteres.");
+                throw new Exception("O nome deve ter mais de três caracteres. ");
 
 
             //TODO: Validar se já existe um usuário com nome existente.
@@ -26,7 +26,7 @@ namespace BLL
         public void Alterar(GrupoUsuario _alterar)
         {
             if (_alterar.NomeGrupo.Length <= 3 || _alterar.NomeGrupo.Length >= 50)
-                throw new Exception("O nome deve ter mais de três caracteres.");
+                throw new Exception("O nome deve ter mais de três caracteres. ");
 
 
             //TODO: Validar se já existe um usuário com nome existente.
@@ -44,7 +44,7 @@ namespace BLL
         public GrupoUsuario BuscarPorNomeGrupoUsuario(string _nomeGrupoUsuario)
         {
             if (String.IsNullOrEmpty(_nomeGrupoUsuario))
-                throw new Exception("Informe um grupo válido.");
+                throw new Exception("Informe um grupo válido. ");
 
             GrupoUsuarioDal grupoUsuarioDAL = new GrupoUsuarioDal();
             return grupoUsuarioDAL.BuscarPorNomeGrupoUsuario(_nomeGrupoUsuario);

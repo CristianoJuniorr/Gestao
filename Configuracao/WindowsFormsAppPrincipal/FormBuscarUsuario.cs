@@ -1,4 +1,5 @@
 ﻿using BLL;
+using Models;
 using System;
 using System.Windows.Forms;
 
@@ -33,10 +34,15 @@ namespace WindowsFormsAppPrincipal
 
         private void button2_Click(object sender, EventArgs e)
         {
-            using (FormAlterarUsuarioi frm = new FormAlterarUsuarioi())
+
+          int id =  ((Usuario)usuarioBindingSource.Current).Id;
+
+            using (FormAdicionarUsuario frm = new FormAdicionarUsuario(true, id))
             {
                 frm.ShowDialog();
             }
+            buttonBuscar_Click(sender, e);
+
 
         }
 

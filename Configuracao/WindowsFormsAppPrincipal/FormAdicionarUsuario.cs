@@ -15,9 +15,14 @@ namespace WindowsFormsAppPrincipal
 {
     public partial class FormAdicionarUsuario : Form
     {
-        public FormAdicionarUsuario()
+        private bool alterar;
+        public FormAdicionarUsuario(bool _alterar = false, int _id=0)
         {
             InitializeComponent();
+            alterar = _alterar;
+
+            if (alterar)
+                usuarioBindingSource.DataSource = new UsuarioBLL().BuscarPorId(_id);
         }
 
     
@@ -30,7 +35,8 @@ namespace WindowsFormsAppPrincipal
             try
             {
                 usuarioBindingSource.EndEdit();
-                usuarioBLL.Inserir((Usuario)usuarioBindingSource.Current);
+                usuarioBLL.Inserir((Usuario)usuarioBindingSource.Current,textBoxConfrmarSenha.Text);
+
                 MessageBox.Show("Cadastrado com sucesso!");
                 Close();
             }

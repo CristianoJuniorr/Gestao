@@ -41,7 +41,54 @@ namespace DAL
                 cn.Close();
             }
         }
+        public Usuario BuscarPorId(int _id)
+        {
+            SqlConnection cn = new SqlConnection();
+            SqlCommand cmd = new SqlCommand();
+            Usuario usuario = new Usuario();
 
+            try
+
+            {
+                cn.ConnectionString = Conexao.StringDeConexao;
+                cmd.Connection = cn;
+                cmd.CommandText = @"SELECT Id, Nome, NomeUsuario, CPF, Email, Ativo FROM Usuario WHERE Id = @Id";
+                cmd.Parameters.AddWithValue("@Id", _id);
+                cmd.CommandType = System.Data.CommandType.Text;
+                cn.Open();
+
+                using (SqlDataReader rd = cmd.ExecuteReader())
+                {
+                    while (rd.Read())
+                    {
+                        usuario = new Usuario();
+                        usuario.Id = Convert.ToInt32(rd["Id"]);
+                        usuario.Nome = rd["Nome"].ToString();
+                        usuario.NomeUsuario = rd["NomeUsuario"].ToString();
+                        usuario.CPF = rd["CPF"].ToString();
+                        usuario.Email = rd["Email"].ToString();
+                        usuario.Ativo = Convert.ToBoolean(rd["Ativo"]);
+                        GrupoUsuarioDal grupoUsuarioDal = new GrupoUsuarioDal();
+                        usuario.GrupoUsuarios = grupoUsuarioDal.BuscarPorIdUsuario(usuario.Id);
+                        
+
+
+                    }
+                }
+                return usuario;
+
+            }
+            catch (Exception ex)
+            {
+                // Console.WriteLine(String.Format("Ocorreu o seguinte erro: {0} ao tentar buscar no banco "));
+
+                throw new Exception("Ocorreu um erro ao tentar buscar um usuário: " + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
         public Usuario BuscarPorNomeUsuario(string _nomeUsuario)
         {
             Usuario usuario = new Usuario();
@@ -68,10 +115,7 @@ namespace DAL
                         usuario.Email = rd["Email"].ToString();
                         usuario.Ativo = Convert.ToBoolean(rd["Ativo"]);
                     }
-                    else
-                    {
-                        throw new Exception("Usuário não encontrado.");
-                    }
+             
                 }
             }
             catch (Exception ex)
@@ -83,6 +127,7 @@ namespace DAL
             return usuario;
 
         }
+
         public List<Usuario> BuscarTodos()
         {
             List<Usuario> usuarios = new List<Usuario>();
@@ -95,7 +140,7 @@ namespace DAL
             {
                 cn.ConnectionString = Conexao.StringDeConexao;
                 cmd.Connection = cn;
-                cmd.CommandText = "SELECT Id, Nome, NomeUsuario, CPF, Email, Ativo FROM Usuario";
+                cmd.CommandText = @"SELECT Id, Nome, NomeUsuario, CPF, Email, Ativo FROM Usuario";
                 cmd.CommandType = System.Data.CommandType.Text;
                 cn.Open();
 
@@ -160,7 +205,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocorreu um erro ao tentar alterar um Usuário no banco: " + ex.Message);
+                throw new Exception("Ocorreu um erro ao tentar alterar um Usuário no banco. " + ex.Message);
             }
             finally
             {
@@ -192,7 +237,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocorreu um erro ao tentar excluir um Usuario no banco: " + ex.Message);
+                throw new Exception("Ocorreu um erro ao tentar excluir um Usuario no banco. " + ex.Message);
             }
             finally
             {

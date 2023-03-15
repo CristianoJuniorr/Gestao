@@ -30,7 +30,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocorreu um erro ao tentar inserir uma descrição no banco: " + ex.Message);
+                throw new Exception("Ocorreu um erro ao tentar inserir uma descrição no banco. " + ex.Message);
             }
             finally
             {
@@ -66,7 +66,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocorreu um erro ao tentar alterar uma descrição no banco: " + ex.Message);
+                throw new Exception("Ocorreu um erro ao tentar alterar uma descrição no banco. " + ex.Message);
             }
             finally
             {
@@ -98,7 +98,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocorreu um erro ao tentar excluir uma descrição no banco: " + ex.Message);
+                throw new Exception("Ocorreu um erro ao tentar excluir uma descrição no banco. " + ex.Message);
             }
             finally
             {
@@ -131,14 +131,14 @@ namespace DAL
                     }
                     else
                     {
-                        throw new Exception("Descrição não encontrada.");
+                        throw new Exception("Permissão não encontrada. ");
                     }
                 }
             }
             catch (Exception ex)
             {
 
-                throw; new Exception("Ocoreu um erro ao tentar fazer busca de Descrição ");
+                throw; new Exception("Ocorreu um erro ao tentar buscar uma permissão. ");
             }
 
             return permissao;

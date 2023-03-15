@@ -14,7 +14,7 @@ namespace BLL
         public void Inserir(Permissao _descricao)
         {
             if (_descricao.Descricao.Length <= 3 || _descricao.Descricao.Length >= 50)
-                throw new Exception("A descrição deve ter mais de três caracteres.");
+                throw new Exception("A descrição deve ter mais de três caracteres. ");
 
 
             //TODO: Validar se já existe um usuário com nome existente.
@@ -29,7 +29,7 @@ namespace BLL
         public void Alterar(Permissao _alterar)
         {
             if (_alterar.Descricao.Length <= 3 || _alterar.Descricao.Length >= 50)
-                throw new Exception("A descrição deve ter mais de três caracteres.");
+                throw new Exception("A descrição deve ter mais de três caracteres. ");
 
 
             //TODO: Validar se o nome é menor ou igual a 3
@@ -48,7 +48,7 @@ namespace BLL
         public Permissao BuscarPorNomeDescricao(string _nomeDescricao)
         {
             if (String.IsNullOrEmpty(_nomeDescricao))
-                throw new Exception("Informe uma descrição válida.");
+                throw new Exception("Informe uma descrição válida. ");
 
             PermissaoDal permissaoDAL = new PermissaoDal();
             return permissaoDAL.BuscarPorNomeDescricao(_nomeDescricao);

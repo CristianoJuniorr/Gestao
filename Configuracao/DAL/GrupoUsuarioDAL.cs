@@ -168,14 +168,14 @@ namespace DAL
                     }
                     else
                     {
-                        throw new Exception("Grupo não encontrado.");
+                        throw new Exception("Grupo não encontrado. ");
                     }
                 }
             }
             catch (Exception ex)
             {
 
-                throw; new Exception("Ocoreu um erro ao tentar fazer busca de Descrição ");
+                throw; new Exception("Ocoreu um erro ao tentar fazer busca de Descrição. ");
             }
 
             return grupoUsuario;
@@ -214,7 +214,7 @@ namespace DAL
             {
                 // Console.WriteLine(String.Format("Ocorreu o seguinte erro: {0} ao tentar buscar no banco "));
 
-                throw new Exception("Ocorreu um erro ao tentar buscar todos os Grupos: ");
+                throw new Exception("Ocorreu um erro ao tentar buscar todos os Grupos. ");
             }
             finally
             {

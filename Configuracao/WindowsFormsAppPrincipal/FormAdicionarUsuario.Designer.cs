@@ -47,6 +47,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.buttonCancelarUsuario = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBoxConfrmarSenha = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,11 +61,11 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label1.Location = new System.Drawing.Point(118, 169);
+            this.label1.Location = new System.Drawing.Point(168, 117);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 25);
+            this.label1.Size = new System.Drawing.Size(64, 25);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Nome:";
+            this.label1.Text = "Nome";
             // 
             // label2
             // 
@@ -74,11 +76,11 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label2.Location = new System.Drawing.Point(24, 208);
+            this.label2.Location = new System.Drawing.Point(167, 170);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(166, 25);
+            this.label2.Size = new System.Drawing.Size(160, 25);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Nome de usuário:";
+            this.label2.Text = "Nome de usuário";
             // 
             // label3
             // 
@@ -89,11 +91,11 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label3.Location = new System.Drawing.Point(132, 248);
+            this.label3.Location = new System.Drawing.Point(503, 116);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 25);
+            this.label3.Size = new System.Drawing.Size(52, 25);
             this.label3.TabIndex = 0;
-            this.label3.Text = "CPF:";
+            this.label3.Text = "CPF";
             // 
             // label4
             // 
@@ -104,11 +106,11 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label4.Location = new System.Drawing.Point(117, 288);
+            this.label4.Location = new System.Drawing.Point(503, 170);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(73, 25);
+            this.label4.Size = new System.Drawing.Size(67, 25);
             this.label4.TabIndex = 0;
-            this.label4.Text = "E-mail:";
+            this.label4.Text = "E-mail";
             // 
             // label5
             // 
@@ -119,11 +121,11 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label5.Location = new System.Drawing.Point(112, 326);
+            this.label5.Location = new System.Drawing.Point(168, 221);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(76, 25);
+            this.label5.Size = new System.Drawing.Size(70, 25);
             this.label5.TabIndex = 0;
-            this.label5.Text = "Senha:";
+            this.label5.Text = "Senha";
             // 
             // label6
             // 
@@ -134,7 +136,7 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label6.Location = new System.Drawing.Point(126, 361);
+            this.label6.Location = new System.Drawing.Point(169, 286);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(62, 25);
             this.label6.TabIndex = 0;
@@ -147,7 +149,7 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label7.Location = new System.Drawing.Point(162, 56);
+            this.label7.Location = new System.Drawing.Point(186, 18);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(563, 67);
             this.label7.TabIndex = 1;
@@ -157,7 +159,7 @@
             // 
             this.buttonSalvar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.buttonSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.buttonSalvar.Location = new System.Drawing.Point(292, 421);
+            this.buttonSalvar.Location = new System.Drawing.Point(346, 347);
             this.buttonSalvar.Name = "buttonSalvar";
             this.buttonSalvar.Size = new System.Drawing.Size(138, 55);
             this.buttonSalvar.TabIndex = 2;
@@ -172,9 +174,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxNome.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioBindingSource, "Nome", true));
             this.textBoxNome.ForeColor = System.Drawing.Color.Black;
-            this.textBoxNome.Location = new System.Drawing.Point(192, 173);
+            this.textBoxNome.Location = new System.Drawing.Point(173, 144);
             this.textBoxNome.Name = "textBoxNome";
-            this.textBoxNome.Size = new System.Drawing.Size(544, 22);
+            this.textBoxNome.Size = new System.Drawing.Size(297, 22);
             this.textBoxNome.TabIndex = 3;
             // 
             // usuarioBindingSource
@@ -187,9 +189,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxNomeUsuario.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioBindingSource, "NomeUsuario", true));
-            this.textBoxNomeUsuario.Location = new System.Drawing.Point(193, 212);
+            this.textBoxNomeUsuario.Location = new System.Drawing.Point(172, 196);
             this.textBoxNomeUsuario.Name = "textBoxNomeUsuario";
-            this.textBoxNomeUsuario.Size = new System.Drawing.Size(543, 22);
+            this.textBoxNomeUsuario.Size = new System.Drawing.Size(296, 22);
             this.textBoxNomeUsuario.TabIndex = 3;
             // 
             // textBoxCPF
@@ -198,9 +200,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxCPF.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioBindingSource, "CPF", true));
-            this.textBoxCPF.Location = new System.Drawing.Point(194, 251);
+            this.textBoxCPF.Location = new System.Drawing.Point(508, 144);
             this.textBoxCPF.Name = "textBoxCPF";
-            this.textBoxCPF.Size = new System.Drawing.Size(542, 22);
+            this.textBoxCPF.Size = new System.Drawing.Size(294, 22);
             this.textBoxCPF.TabIndex = 3;
             // 
             // textBoxEmail
@@ -209,9 +211,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxEmail.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioBindingSource, "Email", true));
-            this.textBoxEmail.Location = new System.Drawing.Point(194, 290);
+            this.textBoxEmail.Location = new System.Drawing.Point(508, 196);
             this.textBoxEmail.Name = "textBoxEmail";
-            this.textBoxEmail.Size = new System.Drawing.Size(542, 22);
+            this.textBoxEmail.Size = new System.Drawing.Size(294, 22);
             this.textBoxEmail.TabIndex = 3;
             // 
             // textBox5
@@ -220,9 +222,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox5.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioBindingSource, "Senha", true));
-            this.textBox5.Location = new System.Drawing.Point(194, 329);
+            this.textBox5.Location = new System.Drawing.Point(173, 249);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(542, 22);
+            this.textBox5.Size = new System.Drawing.Size(296, 22);
             this.textBox5.TabIndex = 3;
             // 
             // checkBox1
@@ -234,7 +236,7 @@
             this.checkBox1.BackColor = System.Drawing.Color.Transparent;
             this.checkBox1.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.usuarioBindingSource, "Ativo", true));
             this.checkBox1.ForeColor = System.Drawing.Color.AliceBlue;
-            this.checkBox1.Location = new System.Drawing.Point(196, 367);
+            this.checkBox1.Location = new System.Drawing.Point(235, 291);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(123, 20);
             this.checkBox1.TabIndex = 4;
@@ -247,7 +249,7 @@
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label10.Location = new System.Drawing.Point(312, 531);
+            this.label10.Location = new System.Drawing.Point(362, 440);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(262, 16);
             this.label10.TabIndex = 9;
@@ -259,7 +261,7 @@
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(301, 515);
+            this.label8.Location = new System.Drawing.Point(352, 424);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(280, 16);
             this.label8.TabIndex = 7;
@@ -269,7 +271,7 @@
             // 
             this.buttonCancelarUsuario.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.buttonCancelarUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.buttonCancelarUsuario.Location = new System.Drawing.Point(456, 421);
+            this.buttonCancelarUsuario.Location = new System.Drawing.Point(510, 347);
             this.buttonCancelarUsuario.Name = "buttonCancelarUsuario";
             this.buttonCancelarUsuario.Size = new System.Drawing.Size(138, 55);
             this.buttonCancelarUsuario.TabIndex = 10;
@@ -277,12 +279,35 @@
             this.buttonCancelarUsuario.UseVisualStyleBackColor = true;
             this.buttonCancelarUsuario.Click += new System.EventHandler(this.buttonCancelarUsuario_Click);
             // 
+            // label9
+            // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.AliceBlue;
+            this.label9.Location = new System.Drawing.Point(503, 222);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(160, 25);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Confirmar Senha";
+            // 
+            // textBoxConfrmarSenha
+            // 
+            this.textBoxConfrmarSenha.Location = new System.Drawing.Point(508, 250);
+            this.textBoxConfrmarSenha.Name = "textBoxConfrmarSenha";
+            this.textBoxConfrmarSenha.Size = new System.Drawing.Size(294, 22);
+            this.textBoxConfrmarSenha.TabIndex = 11;
+            // 
             // FormAdicionarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::WindowsFormsAppPrincipal.Properties.Resources.Foto_Panel_de_Cadastro3;
-            this.ClientSize = new System.Drawing.Size(903, 590);
+            this.ClientSize = new System.Drawing.Size(1047, 486);
+            this.Controls.Add(this.textBoxConfrmarSenha);
             this.Controls.Add(this.buttonCancelarUsuario);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label8);
@@ -296,6 +321,7 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -333,5 +359,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button buttonCancelarUsuario;
         private System.Windows.Forms.BindingSource usuarioBindingSource;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBoxConfrmarSenha;
     }
 }

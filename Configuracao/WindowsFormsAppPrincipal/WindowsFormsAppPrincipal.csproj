@@ -58,12 +58,6 @@
     <Compile Include="FormAdicionarGrupo.Designer.cs">
       <DependentUpon>FormAdicionarGrupo.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormAlterarUsuarioi.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormAlterarUsuarioi.Designer.cs">
-      <DependentUpon>FormAlterarUsuarioi.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormBuscarGrupoUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,9 +83,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormAdicionarGrupo.resx">
       <DependentUpon>FormAdicionarGrupo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormAlterarUsuarioi.resx">
-      <DependentUpon>FormAlterarUsuarioi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormBuscarGrupoUsuario.resx">
       <DependentUpon>FormBuscarGrupoUsuario.cs</DependentUpon>
