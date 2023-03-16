@@ -34,7 +34,7 @@ namespace WindowsFormsAppPrincipal
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+          
           int id =  ((Usuario)usuarioBindingSource.Current).Id;
 
             using (FormAdicionarUsuario frm = new FormAdicionarUsuario(true, id))
@@ -47,5 +47,21 @@ namespace WindowsFormsAppPrincipal
         }
 
 
+        private void buttonExcluirUsuario_Click_1(object sender, EventArgs e)
+        {
+            if (usuarioBindingSource.Count <= 0)
+            {
+                MessageBox.Show("Não existe registro para ser excluído. ");
+                return;
+            }
+            if (MessageBox.Show("Deseja realmente excluir esse registro?", "Atenção", MessageBoxButtons.YesNo) == DialogResult.No)
+                return;
+
+            int id = ((Usuario)usuarioBindingSource.Current).Id;
+            new UsuarioBLL().Excluir(id);
+
+            MessageBox.Show("Registro excluido com sucesso! ");
+            buttonBuscar_Click(null, null);
+        }
     }
 }

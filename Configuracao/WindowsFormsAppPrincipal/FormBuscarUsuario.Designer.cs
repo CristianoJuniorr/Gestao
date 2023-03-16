@@ -44,7 +44,7 @@
             this.grupoUsuariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.buttonExcluirUsuario = new System.Windows.Forms.Button();
             this.buttonAdicionarGrupo = new System.Windows.Forms.Button();
             this.buttonExcluirGrupo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).BeginInit();
@@ -214,15 +214,16 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button4
+            // buttonExcluirUsuario
             // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.Location = new System.Drawing.Point(719, 112);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 1;
-            this.button4.Text = "Excluir";
-            this.button4.UseVisualStyleBackColor = true;
+            this.buttonExcluirUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonExcluirUsuario.Location = new System.Drawing.Point(719, 112);
+            this.buttonExcluirUsuario.Name = "buttonExcluirUsuario";
+            this.buttonExcluirUsuario.Size = new System.Drawing.Size(75, 23);
+            this.buttonExcluirUsuario.TabIndex = 1;
+            this.buttonExcluirUsuario.Text = "Excluir";
+            this.buttonExcluirUsuario.UseVisualStyleBackColor = true;
+            this.buttonExcluirUsuario.Click += new System.EventHandler(this.buttonExcluirUsuario_Click_1);
             // 
             // buttonAdicionarGrupo
             // 
@@ -253,7 +254,7 @@
             this.Controls.Add(this.grupoUsuariosDataGridView);
             this.Controls.Add(this.usuarioDataGridView);
             this.Controls.Add(this.buttonExcluirGrupo);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.buttonExcluirUsuario);
             this.Controls.Add(this.buttonAdicionarGrupo);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -284,7 +285,7 @@
         private System.Windows.Forms.DataGridView grupoUsuariosDataGridView;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button buttonExcluirUsuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.Button buttonAdicionarGrupo;
         private System.Windows.Forms.Button buttonExcluirGrupo;

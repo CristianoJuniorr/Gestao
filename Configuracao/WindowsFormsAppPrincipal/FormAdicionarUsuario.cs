@@ -16,7 +16,7 @@ namespace WindowsFormsAppPrincipal
     public partial class FormAdicionarUsuario : Form
     {
         private bool alterar;
-        public FormAdicionarUsuario(bool _alterar = false, int _id=0)
+        public FormAdicionarUsuario(bool _alterar = false, int _id = 0)
         {
             InitializeComponent();
             alterar = _alterar;
@@ -25,7 +25,7 @@ namespace WindowsFormsAppPrincipal
                 usuarioBindingSource.DataSource = new UsuarioBLL().BuscarPorId(_id);
         }
 
-    
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -35,16 +35,20 @@ namespace WindowsFormsAppPrincipal
             try
             {
                 usuarioBindingSource.EndEdit();
-                usuarioBLL.Inserir((Usuario)usuarioBindingSource.Current,textBoxConfrmarSenha.Text);
+               
+                if (!alterar)
+                    usuarioBLL.Inserir((Usuario)usuarioBindingSource.Current, textBoxConfrmarSenha.Text);
+                else
+                    usuarioBLL.Alterar((Usuario)usuarioBindingSource.Current, textBoxConfrmarSenha.Text);
 
                 MessageBox.Show("Cadastrado com sucesso!");
                 Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ocorreu um erro ao tentar cadastrar um novo usuário."+ex.Message);
+                MessageBox.Show("Ocorreu um erro ao tentar cadastrar um novo usuário." + ex.Message);
             }
-         
+
         }
 
         private void buttonCancelarUsuario_Click(object sender, EventArgs e)
@@ -54,6 +58,7 @@ namespace WindowsFormsAppPrincipal
 
         private void FormAdicionarUsuario_Load(object sender, EventArgs e)
         {
+            if (!alterar)
             usuarioBindingSource.AddNew();
         }
     }

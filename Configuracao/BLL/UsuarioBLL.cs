@@ -51,17 +51,17 @@ namespace BLL
             return usuarioDAL.BuscarPorNomeUsuario(_nomeUsuario);
            
         }
-        public void Alterar(Usuario _alterar)
+        public void Alterar(Usuario _alterar,string _confirmacaoSenha)
         {
-
+            ValidarDados(_alterar, _confirmacaoSenha);
             UsuarioDAL usuarioDAL = new UsuarioDAL();
             usuarioDAL.Alterar(_alterar);
         }
-        public void Excluir(Usuario _excluir)
+        public void Excluir(int _id)
         {
 
             UsuarioDAL usuarioDal = new UsuarioDAL();
-            usuarioDal.Excluir(_excluir);
+            usuarioDal.Excluir(_id);
         }
  
         public List<Usuario> BuscarTodos()

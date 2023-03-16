@@ -212,7 +212,7 @@ namespace DAL
                 cn.Close();
             }
         }
-        public void Excluir(Usuario _excluir)
+        public void Excluir(int _id)
         {
 
             SqlConnection cn = new SqlConnection();
@@ -227,7 +227,7 @@ namespace DAL
 
                 cmd.CommandType = System.Data.CommandType.Text;
                 //  cmd.Parameters.AddWithValue("@Descricao", _excluir.Descricao);
-                cmd.Parameters.AddWithValue("@id", _excluir.Id);
+                cmd.Parameters.AddWithValue("@id", _id);
 
 
                 cn.Open();

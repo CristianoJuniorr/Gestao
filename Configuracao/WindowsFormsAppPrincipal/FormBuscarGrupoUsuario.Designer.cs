@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonAlterarGrupo = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.grupoUsuariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -73,15 +73,15 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // buttonAlterarGrupo
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(608, 128);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Alterar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonAlterarGrupo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAlterarGrupo.Location = new System.Drawing.Point(608, 128);
+            this.buttonAlterarGrupo.Name = "buttonAlterarGrupo";
+            this.buttonAlterarGrupo.Size = new System.Drawing.Size(75, 23);
+            this.buttonAlterarGrupo.TabIndex = 2;
+            this.buttonAlterarGrupo.Text = "Alterar";
+            this.buttonAlterarGrupo.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
@@ -235,7 +235,7 @@
             this.Controls.Add(this.grupoUsuariosDataGridView);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.buttonAlterarGrupo);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.MaximizeBox = false;
@@ -258,7 +258,7 @@
 
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonAlterarGrupo;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.BindingSource grupoUsuariosBindingSource;

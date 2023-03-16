@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,9 +15,11 @@ namespace WindowsFormsAppPrincipal
 {
     public partial class FormAdicionarGrupo : Form
     {
-        public FormAdicionarGrupo()
+        private bool alterar;
+        public FormAdicionarGrupo(bool _alterar = false, int _id = 0)
         {
             InitializeComponent();
+          
         }
 
         private void buttonCancelarAdicionarGrupo_Click(object sender, EventArgs e)
@@ -39,12 +42,14 @@ namespace WindowsFormsAppPrincipal
             {
                 MessageBox.Show("Ocorreu um erro ao tenrtar inserir um grupo no banco de dados."+ex.Message);
             }
+            UsuarioBLL usuarioBLL = new UsuarioBLL();
 
 
         }
 
         private void FormAdicionarGrupo_Load(object sender, EventArgs e)
         {
+            if (!alterar)
             grupoUsuarioBindingSource.AddNew();
         }
     }

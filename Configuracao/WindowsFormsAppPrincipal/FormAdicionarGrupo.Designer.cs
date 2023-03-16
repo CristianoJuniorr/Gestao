@@ -33,8 +33,8 @@
             this.buttonCancelarAdicionarGrupo = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1AdicionarGrupo = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.grupoUsuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.grupoUsuarioBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -88,6 +88,10 @@
             this.textBox1AdicionarGrupo.Size = new System.Drawing.Size(320, 22);
             this.textBox1AdicionarGrupo.TabIndex = 3;
             // 
+            // grupoUsuarioBindingSource
+            // 
+            this.grupoUsuarioBindingSource.DataSource = typeof(Models.GrupoUsuario);
+            // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -100,10 +104,6 @@
             this.label2.Size = new System.Drawing.Size(314, 39);
             this.label2.TabIndex = 4;
             this.label2.Text = "Cadastro de Grupo ";
-            // 
-            // grupoUsuarioBindingSource
-            // 
-            this.grupoUsuarioBindingSource.DataSource = typeof(Models.GrupoUsuario);
             // 
             // FormAdicionarGrupo
             // 
@@ -119,6 +119,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormAdicionarGrupo";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormAdioionarGrupo";
             this.Load += new System.EventHandler(this.FormAdicionarGrupo_Load);
