@@ -63,6 +63,10 @@ namespace BLL
             UsuarioDAL usuarioDal = new UsuarioDAL();
             usuarioDal.Excluir(_id);
         }
+        public void AdicionarGrupo()
+        {
+
+        }
  
         public List<Usuario> BuscarTodos()
         {
@@ -74,6 +78,22 @@ namespace BLL
             UsuarioDAL usuarioDAL=new UsuarioDAL();
             return usuarioDAL.BuscarPorId(_id);
 
+        }
+        public void AdicionarGrupo(int _idUsuario, int _idGrupoUsuario)
+        {
+            if (new UsuarioDAL().ExisteRelacioamento(_idUsuario, _idGrupoUsuario))
+                return;
+            UsuarioDAL usuarioDAL = new UsuarioDAL();
+            usuarioDAL.AdicionarGrupo(_idUsuario, _idGrupoUsuario);
+        }
+
+        public List<Usuario> BuscarPorNome(string _nome)
+        {
+            if (String.IsNullOrEmpty(_nome))
+                throw new Exception("Informe o nome do usuário. ");
+
+            UsuarioDAL usuarioDAL = new UsuarioDAL();
+            return usuarioDAL.BuscarPorNome(_nome);
         }
     }
 }

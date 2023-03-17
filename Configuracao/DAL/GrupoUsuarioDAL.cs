@@ -73,7 +73,7 @@ namespace DAL
                 cn.Close();
             }
         }
-        public void Excluir(GrupoUsuario _excluir)
+        public void Excluir(int _id)
         {
 
             SqlConnection cn = new SqlConnection();
@@ -87,7 +87,7 @@ namespace DAL
 
                 cmd.CommandType = System.Data.CommandType.Text;
                 //  cmd.Parameters.AddWithValue("@Descricao", _excluir.Descricao);
-                cmd.Parameters.AddWithValue("@id", _excluir.Id);
+                cmd.Parameters.AddWithValue("@id", _id);
 
 
                 cn.Open();
@@ -105,8 +105,47 @@ namespace DAL
             }
         }
 
+        public GrupoUsuario BuscarPorId(int _id)
+        {
+            SqlConnection cn = new SqlConnection();
+            SqlCommand cmd = new SqlCommand();
+            GrupoUsuario grupoUsuario = new GrupoUsuario();
 
-        public List <GrupoUsuario> BuscarPorIdUsuario(int _idUsuario)
+            try
+
+            {
+                cn.ConnectionString = Conexao.StringDeConexao;
+                cmd.Connection = cn;
+                cmd.CommandText = @"SELECT Id, GrupoUsuario FROM GrupoUsuario WHERE Id = @Id";
+                cmd.Parameters.AddWithValue("@Id", _id);
+                cmd.CommandType = System.Data.CommandType.Text;
+                cn.Open();
+
+                using (SqlDataReader rd = cmd.ExecuteReader())
+                {
+                    while (rd.Read())
+                    {
+                        grupoUsuario = new GrupoUsuario();
+                        grupoUsuario.Id = Convert.ToInt32(rd["Id"]);
+                        grupoUsuario.NomeGrupo = rd["GrupoUsuario"].ToString();
+
+                    }
+                }
+                return grupoUsuario;
+
+            }
+            catch (Exception ex)
+            {
+                // Console.WriteLine(String.Format("Ocorreu o seguinte erro: {0} ao tentar buscar no banco "));
+
+                throw new Exception("Ocorreu um erro ao tentar buscar um Grupo: " + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+            public List <GrupoUsuario> BuscarPorIdUsuario(int _idUsuario)
         {  
             List<GrupoUsuario> grupoUsuarios = new List<GrupoUsuario>();
             GrupoUsuario grupoUsuario = new GrupoUsuario();
@@ -175,7 +214,7 @@ namespace DAL
             catch (Exception ex)
             {
 
-                throw; new Exception("Ocoreu um erro ao tentar fazer busca de Descrição. ");
+                throw; new Exception("Ocorreu um erro ao tentar fazer busca de Descrição. ");
             }
 
             return grupoUsuario;

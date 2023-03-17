@@ -41,6 +41,10 @@ namespace DAL
                 cn.Close();
             }
         }
+        public void AdicionarGrupo()
+        {
+
+        }
         public Usuario BuscarPorId(int _id)
         {
             SqlConnection cn = new SqlConnection();
@@ -89,6 +93,48 @@ namespace DAL
                 cn.Close();
             }
         }
+        public List<Usuario> BuscarPorNome(string _nome)
+        {
+            Usuario usuario = new Usuario();
+            SqlConnection cn = new SqlConnection();
+            SqlCommand cmd = new SqlCommand();
+            List<Usuario> usuarios = new List<Usuario>();
+
+            try
+            {
+                cn.ConnectionString = Conexao.StringDeConexao;
+                cmd.Connection = cn;
+                cmd.CommandText = @"SELECT Id, Nome, NomeUsuario, CPF, Email, Ativo FROM Usuario WHERE Nome like @NomeUsuario";
+                cmd.Parameters.AddWithValue("@NomeUsuario", "%" + _nome + "%");
+                cmd.CommandType = System.Data.CommandType.Text;
+                cn.Open();
+                using (SqlDataReader rd = cmd.ExecuteReader())
+                {
+                    while (rd.Read())
+                    {
+                        usuario = new Usuario();
+                        usuario.Id = Convert.ToInt32(rd["Id"]);
+                        usuario.Nome = rd["Nome"].ToString();
+                        usuario.NomeUsuario = rd["NomeUsuario"].ToString();
+                        usuario.CPF = rd["CPF"].ToString();
+                        usuario.Email = rd["Email"].ToString();
+                        usuario.Ativo = Convert.ToBoolean(rd["Ativo"]);
+                        GrupoUsuarioDal grupoUsuarioDal = new GrupoUsuarioDal();
+                        usuario.GrupoUsuarios = grupoUsuarioDal.BuscarPorIdUsuario(usuario.Id);
+                        usuarios.Add(usuario);
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw; new Exception("Ocoreu um erro ao tentar fazer busca de usuario ");
+            }
+
+            return usuarios;
+
+        }
         public Usuario BuscarPorNomeUsuario(string _nomeUsuario)
         {
             Usuario usuario = new Usuario();
@@ -99,8 +145,8 @@ namespace DAL
             {
                 cn.ConnectionString = Conexao.StringDeConexao;
                 cmd.Connection = cn;
-                cmd.CommandText = @"SELECT Id, Nome, NomeUsuario, CPF, Email, Ativo FROM Usuario WHERE NomeUsuario like @NomeUsuario";
-                cmd.Parameters.AddWithValue("@NomeUsuario", "%" + _nomeUsuario + "%");
+                cmd.CommandText = @"SELECT Id, Nome, NomeUsuario, CPF, Email, Ativo FROM Usuario WHERE NomeUsuario = @NomeUsuario";
+                cmd.Parameters.AddWithValue("@NomeUsuario", _nomeUsuario);
                 cmd.CommandType = System.Data.CommandType.Text;
                 cn.Open();
                 using (SqlDataReader rd = cmd.ExecuteReader())
@@ -244,7 +290,14 @@ namespace DAL
                 cn.Close();
             }
         }
+        public void AdicionarGrupo(int _idUsuario, int idGrupoUsuario)
+        {
 
+        }
 
+        public bool ExisteRelacioamento(int idUsuario, int idGrupoUsuario)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

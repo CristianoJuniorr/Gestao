@@ -19,7 +19,10 @@ namespace WindowsFormsAppPrincipal
         public FormAdicionarGrupo(bool _alterar = false, int _id = 0)
         {
             InitializeComponent();
-          
+            alterar = _alterar;
+
+            if (alterar)
+                grupoUsuarioBindingSource.DataSource = new GrupoUsuarioBLL().BuscarPorId(_id);
         }
 
         private void buttonCancelarAdicionarGrupo_Click(object sender, EventArgs e)
@@ -34,13 +37,16 @@ namespace WindowsFormsAppPrincipal
             {
 
                 grupoUsuarioBindingSource.EndEdit();
-                grupoUsuarioBLL.Inserir((GrupoUsuario)grupoUsuarioBindingSource.Current);
-                MessageBox.Show("Cadastrado com sucesso!");
+                if (!alterar)
+                    grupoUsuarioBLL.Inserir((GrupoUsuario)grupoUsuarioBindingSource.Current);
+                else
+                    grupoUsuarioBLL.Alterar((GrupoUsuario)grupoUsuarioBindingSource.Current);
+                MessageBox.Show("Salvo com sucesso!");
                 Close();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show("Ocorreu um erro ao tenrtar inserir um grupo no banco de dados."+ex.Message);
+                MessageBox.Show(ex.Message);
             }
             UsuarioBLL usuarioBLL = new UsuarioBLL();
 
@@ -50,7 +56,7 @@ namespace WindowsFormsAppPrincipal
         private void FormAdicionarGrupo_Load(object sender, EventArgs e)
         {
             if (!alterar)
-            grupoUsuarioBindingSource.AddNew();
+                grupoUsuarioBindingSource.AddNew();
         }
     }
 }

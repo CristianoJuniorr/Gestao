@@ -21,8 +21,15 @@ namespace WindowsFormsAppPrincipal
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            GrupoUsuarioBLL grupoUsuario = new GrupoUsuarioBLL();
-            grupoUsuariosBindingSource.DataSource = grupoUsuario.BuscarPorNomeGrupoUsuario(textBox1.Text);
+            try
+            {
+                GrupoUsuarioBLL grupoUsuario = new GrupoUsuarioBLL();
+                grupoUsuariosBindingSource.DataSource = grupoUsuario.BuscarPorNomeGrupoUsuario(textBox1.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -40,8 +47,33 @@ namespace WindowsFormsAppPrincipal
             }
         }
 
+        private void buttonExcluirGrupo_Click(object sender, EventArgs e)
+        {
+            if (grupoUsuariosBindingSource.Count <= 0)
+            {
+                MessageBox.Show("Não existe grupo para ser excluído. ");
+                return;
+            }
+            if (MessageBox.Show("Deseja realmente excluir esse grupo?", "Atenção", MessageBoxButtons.YesNo) == DialogResult.No)
+                return;
 
+            int id = ((GrupoUsuario)grupoUsuariosBindingSource.Current).Id;
+            new GrupoUsuarioBLL().Excluir(id);
 
+            MessageBox.Show("Registro excluido com sucesso! ");
+            button1_Click(null, null);
 
+        }
+
+        private void buttonAlterarGrupo_Click(object sender, EventArgs e)
+        {
+            int id = ((GrupoUsuario)grupoUsuariosBindingSource.Current).Id;
+
+            using (FormAdicionarGrupo frm = new FormAdicionarGrupo(true, id))
+            {
+                frm.ShowDialog();
+            }
+            button1_Click(sender, e);
+        }
     }
 }

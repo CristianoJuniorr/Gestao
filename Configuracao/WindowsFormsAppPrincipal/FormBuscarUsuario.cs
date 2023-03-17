@@ -20,8 +20,10 @@ namespace WindowsFormsAppPrincipal
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+            if (textBox1.Text == "")
+                return;
             UsuarioBLL usuario = new UsuarioBLL();
-            usuarioBindingSource.DataSource = usuario.BuscarPorNomeUsuario(textBox1.Text);
+            usuarioBindingSource.DataSource = usuario.BuscarPorNome(textBox1.Text);
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -62,6 +64,14 @@ namespace WindowsFormsAppPrincipal
 
             MessageBox.Show("Registro excluido com sucesso! ");
             buttonBuscar_Click(null, null);
+        }
+
+        private void buttonAdicionarGrupo_Click(object sender, EventArgs e)
+        {
+            using (FormConsultarGrupoUsuario frm = new FormConsultarGrupoUsuario())
+            {
+                frm.ShowDialog();
+            }
         }
     }
 }

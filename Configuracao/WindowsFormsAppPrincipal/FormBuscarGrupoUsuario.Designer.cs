@@ -33,7 +33,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.buttonAlterarGrupo = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.buttonExcluirGrupo = new System.Windows.Forms.Button();
             this.grupoUsuariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.grupoUsuariosDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -82,6 +82,7 @@
             this.buttonAlterarGrupo.TabIndex = 2;
             this.buttonAlterarGrupo.Text = "Alterar";
             this.buttonAlterarGrupo.UseVisualStyleBackColor = true;
+            this.buttonAlterarGrupo.Click += new System.EventHandler(this.buttonAlterarGrupo_Click);
             // 
             // button3
             // 
@@ -94,15 +95,16 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button4
+            // buttonExcluirGrupo
             // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.Location = new System.Drawing.Point(770, 128);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Excluir ";
-            this.button4.UseVisualStyleBackColor = true;
+            this.buttonExcluirGrupo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonExcluirGrupo.Location = new System.Drawing.Point(770, 128);
+            this.buttonExcluirGrupo.Name = "buttonExcluirGrupo";
+            this.buttonExcluirGrupo.Size = new System.Drawing.Size(75, 23);
+            this.buttonExcluirGrupo.TabIndex = 4;
+            this.buttonExcluirGrupo.Text = "Excluir ";
+            this.buttonExcluirGrupo.UseVisualStyleBackColor = true;
+            this.buttonExcluirGrupo.Click += new System.EventHandler(this.buttonExcluirGrupo_Click);
             // 
             // grupoUsuariosBindingSource
             // 
@@ -233,7 +235,7 @@
             this.Controls.Add(this.button7);
             this.Controls.Add(this.permissoesDataGridView);
             this.Controls.Add(this.grupoUsuariosDataGridView);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.buttonExcluirGrupo);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.buttonAlterarGrupo);
             this.Controls.Add(this.button1);
@@ -260,7 +262,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button buttonAlterarGrupo;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button buttonExcluirGrupo;
         private System.Windows.Forms.BindingSource grupoUsuariosBindingSource;
         private System.Windows.Forms.DataGridView grupoUsuariosDataGridView;
         private System.Windows.Forms.BindingSource permissoesBindingSource;
