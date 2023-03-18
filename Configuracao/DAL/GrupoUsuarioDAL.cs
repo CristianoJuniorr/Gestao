@@ -162,7 +162,7 @@ namespace DAL
                 cn.Open();
                 using (SqlDataReader rd = cmd.ExecuteReader())
                 {
-                    if (rd.Read())
+                    while (rd.Read())
                     {
                         grupoUsuario = new GrupoUsuario();
                         grupoUsuario.Id = Convert.ToInt32(rd["Id"]);
@@ -187,6 +187,7 @@ namespace DAL
             GrupoUsuario grupoUsuario = new GrupoUsuario();
             SqlConnection cn = new SqlConnection();
             SqlCommand cmd = new SqlCommand();
+           
 
             try
             {
@@ -220,6 +221,7 @@ namespace DAL
             return grupoUsuario;
 
         }
+       
 
         public List<GrupoUsuario> BuscarTodos()
         {

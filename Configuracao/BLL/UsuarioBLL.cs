@@ -63,10 +63,7 @@ namespace BLL
             UsuarioDAL usuarioDal = new UsuarioDAL();
             usuarioDal.Excluir(_id);
         }
-        public void AdicionarGrupo()
-        {
-
-        }
+     
  
         public List<Usuario> BuscarTodos()
         {
@@ -94,6 +91,14 @@ namespace BLL
 
             UsuarioDAL usuarioDAL = new UsuarioDAL();
             return usuarioDAL.BuscarPorNome(_nome);
+        }
+
+        public void RemoverGrupoUsuario(int _idUsuario,int idGrupoUsuario)
+        {
+            UsuarioDAL usuarioDAL = new UsuarioDAL();
+            UsuarioDAL usuarioDal = new UsuarioDAL();
+            usuarioDal.RemoverGrupoUsuario(_idUsuario, idGrupoUsuario);
+
         }
     }
 }

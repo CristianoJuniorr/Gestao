@@ -71,7 +71,35 @@ namespace WindowsFormsAppPrincipal
             using (FormConsultarGrupoUsuario frm = new FormConsultarGrupoUsuario())
             {
                 frm.ShowDialog();
+
+                if (frm.Id == 0)
+                    return;
+                UsuarioBLL usuarioBLL = new UsuarioBLL();
+                int idUsuario = ((Usuario)usuarioBindingSource.Current).Id;
+                usuarioBLL.AdicionarGrupo(idUsuario, frm.Id);
+
             }
+        }
+
+        private void buttonExcluirGrupo_Click(object sender, EventArgs e)
+        {
+            if(usuarioBindingSource.Count == 0 || grupoUsuariosBindingSource.Count == 0)
+            {
+                MessageBox.Show("Não existe grupo de usuário para ser excluir.");
+                return;
+            }
+           
+            if (MessageBox.Show("Deseja realmente excluir esse registro?", "Atenção", MessageBoxButtons.YesNo) == DialogResult.No)
+                return;
+
+            int idUsuario = ((Usuario)usuarioBindingSource.Current).Id;
+            int idGrupoUsuario = ((GrupoUsuario)grupoUsuariosBindingSource.Current).Id;
+            new UsuarioBLL().RemoverGrupoUsuario(idUsuario, idGrupoUsuario);
+            grupoUsuariosBindingSource.RemoveCurrent();
+
+            MessageBox.Show("Registro excluido com sucesso! ");
+            buttonBuscar_Click(null, null);
+
         }
     }
 }

@@ -192,6 +192,7 @@
             this.grupoUsuarioDataGridView.AllowUserToAddRows = false;
             this.grupoUsuarioDataGridView.AllowUserToDeleteRows = false;
             this.grupoUsuarioDataGridView.AllowUserToOrderColumns = true;
+            this.grupoUsuarioDataGridView.AllowUserToResizeRows = false;
             this.grupoUsuarioDataGridView.AutoGenerateColumns = false;
             this.grupoUsuarioDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grupoUsuarioDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -243,7 +244,7 @@
             this.textBoxConsultarGrupo.Name = "textBoxConsultarGrupo";
             this.textBoxConsultarGrupo.Size = new System.Drawing.Size(652, 22);
             this.textBoxConsultarGrupo.TabIndex = 3;
-            this.textBoxConsultarGrupo.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBoxConsultarGrupo.TextChanged += new System.EventHandler(this.textBoxConsultarGrupo_TextChanged);
             // 
             // buttonBuscarConsultaGrupo
             // 

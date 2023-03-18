@@ -21,15 +21,10 @@ namespace WindowsFormsAppPrincipal
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            try
-            {
-                GrupoUsuarioBLL grupoUsuario = new GrupoUsuarioBLL();
-                grupoUsuariosBindingSource.DataSource = grupoUsuario.BuscarPorNomeGrupoUsuario(textBox1.Text);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            if (textBox1.Text == "")
+                return;
+            GrupoUsuarioBLL grupoUsuario = new GrupoUsuarioBLL();
+            grupoUsuariosBindingSource.DataSource = grupoUsuario.BuscarPorNomeGrupoUsuario(textBox1.Text);
         }
 
         private void button1_Click(object sender, EventArgs e)

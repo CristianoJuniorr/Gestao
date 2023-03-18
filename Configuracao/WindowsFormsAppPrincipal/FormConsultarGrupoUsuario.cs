@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Models;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WindowsFormsAppPrincipal
 {
@@ -42,10 +43,21 @@ namespace WindowsFormsAppPrincipal
             Close();    
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void textBoxConsultarGrupo_TextChanged(object sender, EventArgs e)
         {
-            GrupoUsuarioBLL grupoUsuario = new GrupoUsuarioBLL();
-            grupoUsuarioBindingSource.DataSource = grupoUsuario.BuscarPorNomeGrupoUsuario(textBoxConsultarGrupo.Text);
+            try
+            {
+                if (textBoxConsultarGrupo.Text == "")
+                    return;
+                GrupoUsuarioBLL grupoUsuarioBLL = new GrupoUsuarioBLL();
+            grupoUsuarioBindingSource.DataSource = grupoUsuarioBLL.BuscarPorNomeGrupoUsuario(textBoxConsultarGrupo.Text);
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }
