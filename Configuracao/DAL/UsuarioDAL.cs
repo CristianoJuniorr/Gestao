@@ -392,5 +392,43 @@ namespace DAL
             }
 
         }
+            public bool ValidarPermissao(int _idUsuario, int _idPermissao)
+            {
+            SqlConnection cn = new SqlConnection();
+            SqlCommand cmd = new SqlCommand();
+
+            try
+            {
+                cn.ConnectionString = Conexao.StringDeConexao;
+                cmd.Connection = cn;
+                cmd.CommandText = @"SELECT*FROM UsuarioGrupoUsuario
+                INNER JOIN PermissaoGrupoUsuario ON UsuarioGrupoUsuario.Id_GrupoUsuario = PermissaoGrupoUsuario.Id_GrupoUsuario
+                WHERE UsuarioGrupoUsuario.Id_Usuario = @Id_Usuario AND PermissaoGrupoUsuario.Id_Permissao = @Id_Permissao";
+                cmd.CommandType = System.Data.CommandType.Text;
+
+                cmd.Parameters.AddWithValue("@Id_Usuario", _idUsuario);
+                cmd.Parameters.AddWithValue("@Id_Permissao", _idPermissao);
+
+                cn.Open();
+
+                using (SqlDataReader rd = cmd.ExecuteReader())
+                {
+                    while (rd.Read())
+                    {
+                        return true;
+                    }
+                }
+                return false;
+               
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Esse usuário não tem permissao para alterar o sistema  " + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
     }
 }

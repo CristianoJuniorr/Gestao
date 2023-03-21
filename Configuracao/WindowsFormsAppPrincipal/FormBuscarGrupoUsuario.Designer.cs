@@ -76,7 +76,7 @@
             // buttonAlterarGrupo
             // 
             this.buttonAlterarGrupo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonAlterarGrupo.Location = new System.Drawing.Point(608, 128);
+            this.buttonAlterarGrupo.Location = new System.Drawing.Point(689, 127);
             this.buttonAlterarGrupo.Name = "buttonAlterarGrupo";
             this.buttonAlterarGrupo.Size = new System.Drawing.Size(75, 23);
             this.buttonAlterarGrupo.TabIndex = 2;
@@ -87,7 +87,7 @@
             // button3
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(689, 128);
+            this.button3.Location = new System.Drawing.Point(608, 127);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 3;

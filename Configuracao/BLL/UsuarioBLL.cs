@@ -100,5 +100,11 @@ namespace BLL
             usuarioDal.RemoverGrupoUsuario(_idUsuario, idGrupoUsuario);
 
         }
+        public void ValidarPermissao(int _IdPermissao)
+        {
+            if (!new UsuarioDAL().ValidarPermissao(Constantes.IdUsuarioLogado, _IdPermissao))
+                throw new Exception("Você não tem permissão para executar essa operação. Procure o administrador do sistema.");
+
+        }
     }
 }
