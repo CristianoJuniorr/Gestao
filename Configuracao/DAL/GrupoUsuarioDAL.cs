@@ -83,11 +83,13 @@ namespace DAL
                 cn.ConnectionString = Conexao.StringDeConexao;
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = cn;
-                cmd.CommandText = @"Delete From GrupoUsuario where id = @id;";
+                cmd.CommandText = @"DELETE FROM PermissaoGrupoUsuario Where Id_GrupoUsuario = @Id
+                                    DELETE FROM UsuarioGrupoUsuario Where Id_GrupoUsuario = @Id
+                                    Delete From GrupoUsuario where Id = @Id";
 
                 cmd.CommandType = System.Data.CommandType.Text;
                 //  cmd.Parameters.AddWithValue("@Descricao", _excluir.Descricao);
-                cmd.Parameters.AddWithValue("@id", _id);
+                cmd.Parameters.AddWithValue("@Id", _id);
 
 
                 cn.Open();
@@ -243,8 +245,10 @@ namespace DAL
                     while (rd.Read())
                     {
                         grupoUsuario = new GrupoUsuario();
+                        grupoUsuario = new GrupoUsuario();
                         grupoUsuario.Id = Convert.ToInt32(rd["Id"]);
                         grupoUsuario.NomeGrupo = rd["GrupoUsuario"].ToString();
+                        grupoUsuario.Permissoes = new PermissaoDal().BuscarPorIdGrupoUsuario(grupoUsuario.Id);
                         grupoUsuarios.Add(grupoUsuario);
                     }
                 }
@@ -264,6 +268,38 @@ namespace DAL
             
         }
 
+        public void RemoverPermisao(int idGrupoUsuario, int idPermissao)
+        {
+
+
+            SqlConnection cn = new SqlConnection();
+
+            try
+            {
+                cn.ConnectionString = Conexao.StringDeConexao;
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = cn;
+                cmd.CommandText = @"Delete from PermissaoGrupoUsuario Where Id_Usuario = @idGrupoUsuario AND Id_GrupoUsuario = @IdPermissao";
+
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Parameters.AddWithValue("@IdGrupoUsuario", idGrupoUsuario);
+                cmd.Parameters.AddWithValue("@IdPermissao", idPermissao);
+
+
+                cn.Open();
+                cmd.ExecuteScalar();
+
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocorreu um erro ao tentar excluir um Usuario no banco. " + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
     }
 
 

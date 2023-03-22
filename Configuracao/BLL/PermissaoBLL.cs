@@ -11,21 +11,7 @@ namespace BLL
 {
     public  class PermissaoBLL
     {
-        public void Inserir(Permissao _descricao)
-        {
-            if (_descricao.Descricao.Length <= 3 || _descricao.Descricao.Length >= 50)
-                throw new Exception("A descrição deve ter mais de três caracteres. ");
-
-
-            //TODO: Validar se já existe um usuário com nome existente.
-
-            PermissaoDal permissaoDal  = new PermissaoDal();
-            permissaoDal.Inserir(_descricao);
-        }
        
-        
-        
-        
         public void Alterar(Permissao _alterar)
         {
             if (_alterar.Descricao.Length <= 3 || _alterar.Descricao.Length >= 50)
@@ -61,6 +47,12 @@ namespace BLL
             return permissaoDAL.BuscarTodos();
         }
 
-
+        public void AdicionarPermissao(int _idPermissao, int _idGrupoUsuario)
+        {
+            if (new PermissaoDal().ExisteRelacioamento(_idPermissao, _idGrupoUsuario))
+                return;
+            PermissaoDal permissaoDAL = new PermissaoDal();
+            permissaoDAL.AdicionarPermissao(_idPermissao, _idGrupoUsuario);
+        }
     }
 }

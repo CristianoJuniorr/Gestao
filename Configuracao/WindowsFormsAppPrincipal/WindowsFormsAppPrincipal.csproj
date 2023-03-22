@@ -76,6 +76,12 @@
     <Compile Include="FormConsultarGrupoUsuario.Designer.cs">
       <DependentUpon>FormConsultarGrupoUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormConsultarPermissaoGrupo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormConsultarPermissaoGrupo.Designer.cs">
+      <DependentUpon>FormConsultarPermissaoGrupo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormConsultarGrupoUsuario.resx">
       <DependentUpon>FormConsultarGrupoUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormConsultarPermissaoGrupo.resx">
+      <DependentUpon>FormConsultarPermissaoGrupo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
@@ -185,6 +194,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Foto Panel de Cadastro7.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Foto Panel de Cadastro8.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -7,8 +7,9 @@ namespace DAL
 {
     public class PermissaoDal
     {
-        public void Inserir(Permissao _descricao)
+        public void AdicionarPermissao(int _idPermissao, int _idGrupoUsuario)
         {
+
             SqlConnection cn = new SqlConnection();
 
             try
@@ -16,11 +17,12 @@ namespace DAL
                 cn.ConnectionString = Conexao.StringDeConexao;
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = cn;
-                cmd.CommandText = @"INSERT INTO Permissao(Descricao)
-                                  VALUES (@Descricao)";
+                cmd.CommandText = @"INSERT INTO PermissaoGrupoUsuario(Id_Permissao, Id_GrupoUsuario)
+                                  VALUES (@Id_Permissao, @Id_GrupoUsuario)";
 
                 cmd.CommandType = System.Data.CommandType.Text;
-                cmd.Parameters.AddWithValue("@Descricao", _descricao.Descricao);
+                cmd.Parameters.AddWithValue("@Id_Permissao", _idPermissao);
+                cmd.Parameters.AddWithValue("@Id_GrupoUsuario", _idGrupoUsuario);
 
 
                 cn.Open();
@@ -30,7 +32,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocorreu um erro ao tentar inserir uma descrição no banco. " + ex.Message);
+                throw new Exception("Ocorreu um erro ao tentar inserir um grupo a esse usuário. " + ex.Message);
             }
             finally
             {
@@ -142,6 +144,81 @@ namespace DAL
             }
 
             return permissao;
+
+        }
+        public bool ExisteRelacioamento(int _idPermissao, int _idGrupoUsuario)
+        {
+            SqlConnection cn = new SqlConnection();
+            SqlCommand cmd = new SqlCommand();
+
+            try
+            {
+                cn.ConnectionString = Conexao.StringDeConexao;
+                cmd.Connection = cn;
+                cmd.CommandText = @"Select 1 AS Retorno from PermissaoGrupoUsuario Where Id_Permissao = @Id_Permissao AND Id_GrupoUsuario = @Id_GrupoUsuario";
+                cmd.CommandType = System.Data.CommandType.Text;
+
+                cmd.Parameters.AddWithValue("@Id_Permissao", _idPermissao);
+                cmd.Parameters.AddWithValue("@Id_GrupoUsuario", _idGrupoUsuario);
+
+                cn.Open();
+
+                using (SqlDataReader rd = cmd.ExecuteReader())
+                {
+                    while (rd.Read())
+                    {
+                        return true;
+                    }
+                }
+                return false;
+                //cmd.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocorreu um erro ao tentar excluir um Usuario no banco. " + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        public List<Permissao> BuscarPorIdGrupoUsuario(int _idUsuario )
+        {
+            List<Permissao> permissaos = new List<Permissao>();
+            Permissao permissao = new Permissao();
+            SqlConnection cn = new SqlConnection();
+            SqlCommand cmd = new SqlCommand();
+
+            try
+            {
+                cn.ConnectionString = Conexao.StringDeConexao;
+                cmd.Connection = cn;
+                cmd.CommandText = @"SELECT Permissao.Id, Permissao.Descricao FROM Permissao
+                INNER JOIN	PermissaoGrupoUsuario ON Permissao.Id = PermissaoGrupoUsuario.Id_Permissao
+                WHERE Id_GrupoUsuario = @IdGrupo;";
+
+                cmd.Parameters.AddWithValue("@IdGrupo", _idUsuario);
+                cmd.CommandType = System.Data.CommandType.Text;
+                cn.Open();
+                using (SqlDataReader rd = cmd.ExecuteReader())
+                {
+                    while (rd.Read())
+                    {
+                        permissao = new Permissao();
+                        permissao.Id = Convert.ToInt32(rd["Id"]);
+                        permissao.Descricao = rd["Descricao"].ToString();
+                        permissaos.Add(permissao);
+                    }
+
+                }
+                return permissaos;
+            }
+            catch (Exception ex)
+            {
+
+                throw; new Exception("Ocorreu um erro ao tentar fazer à busca de uma permissão.  ");
+            }
+
 
         }
 

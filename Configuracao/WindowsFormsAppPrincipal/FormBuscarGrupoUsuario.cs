@@ -46,10 +46,10 @@ namespace WindowsFormsAppPrincipal
         {
             if (grupoUsuariosBindingSource.Count <= 0)
             {
-                MessageBox.Show("Não existe grupo para ser excluído. ");
+                MessageBox.Show("Não existe registro para ser excluído. ");
                 return;
             }
-            if (MessageBox.Show("Deseja realmente excluir esse grupo?", "Atenção", MessageBoxButtons.YesNo) == DialogResult.No)
+            if (MessageBox.Show("Deseja realmente excluir esse registro?", "Atenção", MessageBoxButtons.YesNo) == DialogResult.No)
                 return;
 
             int id = ((GrupoUsuario)grupoUsuariosBindingSource.Current).Id;
@@ -70,5 +70,41 @@ namespace WindowsFormsAppPrincipal
             }
             button1_Click(sender, e);
         }
+
+        private void buttonAdiconarPermissao_Click(object sender, EventArgs e)
+        {
+            using (FormConsultarPermissaoGrupo frm = new FormConsultarPermissaoGrupo())
+            {
+                frm.ShowDialog();
+
+                if (frm.Id == 0)
+                    return;
+                PermissaoBLL permissaoBLL = new PermissaoBLL();
+                int idGrupoUsuario = ((GrupoUsuario)grupoUsuariosBindingSource.Current).Id;
+                permissaoBLL.AdicionarPermissao(frm.Id, idGrupoUsuario);
+                button1_Click(sender, e);
+            }
+        }
+
+        private void buttonExcluirPermissao_Click(object sender, EventArgs e)
+        {
+            if (permissoesBindingSource.Count == 0 || permissoesBindingSource.Count == 0)
+            {
+                MessageBox.Show("Não existe grupo de usuário para ser excluir.");
+                return;
+            }
+
+            if (MessageBox.Show("Deseja realmente excluir esse registro?", "Atenção", MessageBoxButtons.YesNo) == DialogResult.No)
+                return;
+
+            int idPermissao = ((Permissao)permissoesBindingSource.Current).Id;
+            int idGrupoUsuario = ((GrupoUsuario)grupoUsuariosBindingSource.Current).Id;
+            new GrupoUsuarioBLL().RemoverPermissao(idGrupoUsuario, idPermissao);
+            permissoesBindingSource.RemoveCurrent();
+
+            MessageBox.Show("Registro excluido com sucesso! ");
+            //button1_Click(null, null);
+        }
     }
 }
+

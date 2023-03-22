@@ -106,5 +106,7 @@ namespace BLL
                 throw new Exception("Você não tem permissão para executar essa operação. Procure o administrador do sistema.");
 
         }
+
+       
     }
 }
