@@ -23,12 +23,23 @@ namespace WindowsFormsAppPrincipal
 
         private void buttonBuscarConsultaGrupo_Click(object sender, EventArgs e)
         {
+            try
+            {
             GrupoUsuarioBLL grupoUsuarioBLL = new GrupoUsuarioBLL();
             grupoUsuarioBindingSource.DataSource = grupoUsuarioBLL.BuscarTodos();
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void buttonSelecionaConsultaGeupoUsuario_Click(object sender, EventArgs e)
         {
+            try
+            {
             if (grupoUsuarioBindingSource.Count > 0)
             {
                 Id = ((GrupoUsuario)grupoUsuarioBindingSource.Current).Id;
@@ -36,6 +47,13 @@ namespace WindowsFormsAppPrincipal
             }
             else
                 MessageBox.Show("Não existe um grupo de usuário para ser relacionado. ");
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void buttonCancelarConsulta_Click(object sender, EventArgs e)
@@ -53,10 +71,10 @@ namespace WindowsFormsAppPrincipal
             grupoUsuarioBindingSource.DataSource = grupoUsuarioBLL.BuscarPorNomeGrupoUsuario(textBoxConsultarGrupo.Text);
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                MessageBox.Show(ex.Message);
             }
         }
     }

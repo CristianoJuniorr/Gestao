@@ -18,11 +18,20 @@ namespace WindowsFormsAppPrincipal
         private bool alterar;
         public FormAdicionarGrupo(bool _alterar = false, int _id = 0)
         {
+            try
+            {
             InitializeComponent();
             alterar = _alterar;
 
             if (alterar)
                 grupoUsuarioBindingSource.DataSource = new GrupoUsuarioBLL().BuscarPorId(_id);
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         private void buttonCancelarAdicionarGrupo_Click(object sender, EventArgs e)
@@ -55,8 +64,17 @@ namespace WindowsFormsAppPrincipal
 
         private void FormAdicionarGrupo_Load(object sender, EventArgs e)
         {
+            try
+            {
             if (!alterar)
                 grupoUsuarioBindingSource.AddNew();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

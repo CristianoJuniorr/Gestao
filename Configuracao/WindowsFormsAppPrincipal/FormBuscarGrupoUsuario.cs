@@ -21,29 +21,59 @@ namespace WindowsFormsAppPrincipal
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+            try
+            {
             if (textBox1.Text == "")
                 return;
             GrupoUsuarioBLL grupoUsuario = new GrupoUsuarioBLL();
             grupoUsuariosBindingSource.DataSource = grupoUsuario.BuscarPorNomeGrupoUsuario(textBox1.Text);
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            try
+            {
             GrupoUsuarioBLL grupoUsuarioBLL = new GrupoUsuarioBLL();
             grupoUsuariosBindingSource.DataSource = grupoUsuarioBLL.BuscarTodos();
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
 
 
         private void button3_Click(object sender, EventArgs e)
         {
+            try
+            {
             using (FormAdicionarGrupo frm = new FormAdicionarGrupo())
             {
                 frm.ShowDialog();
             }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         private void buttonExcluirGrupo_Click(object sender, EventArgs e)
         {
+            try
+            {
             if (grupoUsuariosBindingSource.Count <= 0)
             {
                 MessageBox.Show("Não existe registro para ser excluído. ");
@@ -54,14 +84,23 @@ namespace WindowsFormsAppPrincipal
 
             int id = ((GrupoUsuario)grupoUsuariosBindingSource.Current).Id;
             new GrupoUsuarioBLL().Excluir(id);
+                MessageBox.Show("Grupo excluído com sucesso!");
 
-            MessageBox.Show("Registro excluido com sucesso! ");
-            button1_Click(null, null);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+          
 
         }
 
         private void buttonAlterarGrupo_Click(object sender, EventArgs e)
         {
+            try
+            {
             int id = ((GrupoUsuario)grupoUsuariosBindingSource.Current).Id;
 
             using (FormAdicionarGrupo frm = new FormAdicionarGrupo(true, id))
@@ -69,10 +108,19 @@ namespace WindowsFormsAppPrincipal
                 frm.ShowDialog();
             }
             button1_Click(sender, e);
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void buttonAdiconarPermissao_Click(object sender, EventArgs e)
         {
+            try
+            {
             using (FormConsultarPermissaoGrupo frm = new FormConsultarPermissaoGrupo())
             {
                 frm.ShowDialog();
@@ -82,12 +130,22 @@ namespace WindowsFormsAppPrincipal
                 PermissaoBLL permissaoBLL = new PermissaoBLL();
                 int idGrupoUsuario = ((GrupoUsuario)grupoUsuariosBindingSource.Current).Id;
                 permissaoBLL.AdicionarPermissao(frm.Id, idGrupoUsuario);
+                    MessageBox.Show("Permissão adicionada com sucesso!");
                 button1_Click(sender, e);
+            }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void buttonExcluirPermissao_Click(object sender, EventArgs e)
         {
+            try
+            {
             if (permissoesBindingSource.Count == 0 || permissoesBindingSource.Count == 0)
             {
                 MessageBox.Show("Não existe grupo de usuário para ser excluir.");
@@ -102,8 +160,15 @@ namespace WindowsFormsAppPrincipal
             new GrupoUsuarioBLL().RemoverPermissao(idGrupoUsuario, idPermissao);
             permissoesBindingSource.RemoveCurrent();
 
-            MessageBox.Show("Registro excluido com sucesso! ");
+            MessageBox.Show("Permissão excluída com sucesso! ");
             //button1_Click(null, null);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
         }
     }
 }

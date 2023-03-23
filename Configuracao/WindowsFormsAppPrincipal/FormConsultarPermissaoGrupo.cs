@@ -22,8 +22,17 @@ namespace WindowsFormsAppPrincipal
 
         private void buttonBuscarPermissao_Click(object sender, EventArgs e)
         {
+            try
+            {
             PermissaoBLL permissaoBLL = new PermissaoBLL();
             permissaoBindingSource.DataSource = permissaoBLL.BuscarTodos();
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void textBoxConsultarPermissao_TextChanged(object sender, EventArgs e)
@@ -36,15 +45,17 @@ namespace WindowsFormsAppPrincipal
                 permissaoBindingSource.DataSource = permissaoBLL.BuscarPorNomeDescricao(textBoxConsultarPermissao.Text);
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
 
-                throw;
             }
         }
 
         private void buttonSelecionarConsultarPermissao_Click(object sender, EventArgs e)
         {
+            try
+            {
             if (permissaoBindingSource.Count > 0)
             {
                 Id = ((Permissao)permissaoBindingSource.Current).Id;
@@ -52,6 +63,13 @@ namespace WindowsFormsAppPrincipal
             }
             else
                 MessageBox.Show("Não existe permissões para serem relacionadas. ");
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void CancelarConsultaPermissao_Click(object sender, EventArgs e)

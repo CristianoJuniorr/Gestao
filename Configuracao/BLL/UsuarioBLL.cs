@@ -31,6 +31,9 @@ namespace BLL
             if (_usuario.NomeUsuario.Contains(" "))
                 throw new Exception(" O nome de usuário não pode conter espaço em branco. ");
 
+            if (String.IsNullOrEmpty(_usuario.Senha))
+                throw new Exception("Informe a senha");
+
             if (_usuario.Senha.Contains("1234567"))
                 throw new Exception(" Não é permitido um número sequencial. ");
 
@@ -87,7 +90,7 @@ namespace BLL
         public List<Usuario> BuscarPorNome(string _nome)
         {
             if (String.IsNullOrEmpty(_nome))
-                throw new Exception("Informe o nome do usuário. ");
+               throw new Exception("Informe o nome do usuário. ");
 
             UsuarioDAL usuarioDAL = new UsuarioDAL();
             return usuarioDAL.BuscarPorNome(_nome);

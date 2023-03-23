@@ -35,18 +35,18 @@ namespace WindowsFormsAppPrincipal
             try
             {
                 usuarioBindingSource.EndEdit();
-               
+
                 if (!alterar)
                     usuarioBLL.Inserir((Usuario)usuarioBindingSource.Current, textBoxConfrmarSenha.Text);
                 else
                     usuarioBLL.Alterar((Usuario)usuarioBindingSource.Current, textBoxConfrmarSenha.Text);
 
-                MessageBox.Show("Cadastrado com sucesso!");
+                MessageBox.Show("Salvo com sucesso!");
                 Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ocorreu um erro ao tentar cadastrar um novo usuário." + ex.Message);
+                MessageBox.Show(ex.Message);
             }
 
         }
@@ -59,7 +59,7 @@ namespace WindowsFormsAppPrincipal
         private void FormAdicionarUsuario_Load(object sender, EventArgs e)
         {
             if (!alterar)
-            usuarioBindingSource.AddNew();
+                usuarioBindingSource.AddNew();
         }
     }
 }

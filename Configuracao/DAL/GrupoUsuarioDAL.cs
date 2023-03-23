@@ -279,7 +279,7 @@ namespace DAL
                 cn.ConnectionString = Conexao.StringDeConexao;
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = cn;
-                cmd.CommandText = @"Delete from PermissaoGrupoUsuario Where Id_Usuario = @idGrupoUsuario AND Id_GrupoUsuario = @IdPermissao";
+                cmd.CommandText = @"Delete from PermissaoGrupoUsuario Where Id_GrupoUsuario = @idGrupoUsuario AND Id_Permissao = @IdPermissao";
 
                 cmd.CommandType = System.Data.CommandType.Text;
                 cmd.Parameters.AddWithValue("@IdGrupoUsuario", idGrupoUsuario);
