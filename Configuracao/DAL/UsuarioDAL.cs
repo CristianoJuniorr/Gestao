@@ -1,6 +1,8 @@
 ﻿using Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.Security.Cryptography;
 
@@ -257,24 +259,37 @@ namespace DAL
                 cn.Close();
             }
         }
-        public void Excluir(int _id)
+        public void Excluir(int _id, SqlTransaction _transaction = null)
         {
 
-            SqlConnection cn = new SqlConnection();
+            SqlTransaction transaction = _transaction;
 
+            using (SqlConnection cn = new SqlConnection(Conexao.StringDeConexao))
+            {
+
+                using (SqlCommand cmd = new SqlCommand("DELETE FROM Usuario Where Id = @Id"))
+                {
+
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@id", _id);
             try
             {
-                cn.ConnectionString = Conexao.StringDeConexao;
-                SqlCommand cmd = new SqlCommand();
+                        if(_transaction == null)
+                        {
+                            cn.Open();
+                            transaction = cn.BeginTransaction();
 
-                cmd.Connection = cn;
-                cmd.CommandText = @"DELETE FROM UsuarioGrupoUsuario Where Id_Usuario = @Id
-                                    Delete From Usuario where Id = @id;";
+                        }
 
-                cmd.CommandType = System.Data.CommandType.Text;
-                //  cmd.Parameters.AddWithValue("@Descricao", _excluir.Descricao);
-                cmd.Parameters.AddWithValue("@id", _id);
+                        cmd.Transaction = transaction;
+                        cmd.Connection = transaction.Connection;
+                       
+                        RemoverGrupoUsuario(_id, transaction);
 
+                        cmd.ExecuteNonQuery();
+
+                        if (_transaction == null)
+                            transaction.Commit();
 
                 cn.Open();
                 cmd.ExecuteScalar();
@@ -283,13 +298,58 @@ namespace DAL
             }
             catch (Exception ex)
             {
+                  transaction.Rollback();
                 throw new Exception("Ocorreu um erro ao tentar excluir um Usuario no banco. " + ex.Message);
             }
             finally
             {
                 cn.Close();
             }
+                    }
+            }
         }
+
+        private void RemoverGrupoUsuario(int _id, SqlTransaction _transaction = null)
+        {
+            SqlTransaction transaction = _transaction;
+
+
+            using (SqlConnection cn = new SqlConnection(Conexao.StringDeConexao))
+            {
+                using (SqlCommand cmd = new SqlCommand("DELETE FROM UsuarioGrupoUsuario Where Id_Usuario = @Id "))
+                {
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Parameters.AddWithValue("@Id", _id);
+
+                    if (transaction == null)
+                    {
+                        cn.Open();
+                        transaction = cn.BeginTransaction();
+                    }
+
+                    cmd.Transaction = transaction;
+                    cmd.Connection = transaction.Connection;
+
+                    try
+                    {
+                        cmd.ExecuteNonQuery();
+                        if (transaction == null)
+                        {
+                            transaction.Commit();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+
+                        throw new Exception(ex.Message);
+                    }
+
+                }
+
+            }
+        }
+
         public void AdicionarGrupo(int _idUsuario, int _idGrupoUsuario)
         {
 
