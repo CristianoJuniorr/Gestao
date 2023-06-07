@@ -60,6 +60,7 @@ namespace WindowsFormsAppPrincipal
             {
                 frm.ShowDialog();
             }
+                button1_Click(sender, e);
 
             }
             catch (Exception ex)
