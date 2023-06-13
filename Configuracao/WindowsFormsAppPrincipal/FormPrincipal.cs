@@ -35,5 +35,14 @@ namespace WindowsFormsAppPrincipal
         {
 
         }
+
+        private void clientesToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            using (FormConsultarCliente frm = new FormConsultarCliente()) 
+            {
+                frm.ShowDialog();
+
+            }
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿using ClassLibrary1;
+﻿
 using Models;
 using System;
 using System.Collections.Generic;
@@ -94,9 +94,10 @@ namespace DAL
 
             
         }
-        public Cliente BuscarPorNome(string _nomeCliente)
+        public List<Cliente> BuscarPorNome(string _nomeCliente)
         {
-            Cliente cliente = new Cliente();
+            List<Cliente> clienteList = new List<Cliente>();
+            Cliente cliente;
             SqlConnection cn = new SqlConnection();
             SqlCommand cmd = new SqlCommand();
 
@@ -129,7 +130,7 @@ namespace DAL
                 throw; new Exception("Ocoreu um erro ao tentar fazer busca por nome de clientes no banco de dados. ");
             }
 
-            return cliente;
+            return clienteList;
 
         }
         public Cliente BuscarPorId(int _id)

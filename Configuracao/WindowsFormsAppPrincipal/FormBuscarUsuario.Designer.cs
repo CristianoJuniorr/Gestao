@@ -77,6 +77,7 @@
             // usuarioBindingSource
             // 
             this.usuarioBindingSource.DataSource = typeof(Models.Usuario);
+           
             // 
             // usuarioDataGridView
             // 
