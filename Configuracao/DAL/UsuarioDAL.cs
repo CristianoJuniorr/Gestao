@@ -127,10 +127,10 @@ namespace DAL
 
                 }
             }
-            catch (Exception ex)
+            catch (Exception )
             {
 
-                throw; new Exception("Ocoreu um erro ao tentar fazer busca de usuario ");
+                throw new Exception("Ocoreu um erro ao tentar fazer busca de usuario ");
             }
 
             return usuarios;
@@ -165,10 +165,10 @@ namespace DAL
              
                 }
             }
-            catch (Exception ex)
+            catch (Exception )
             {
 
-                throw; new Exception("Ocoreu um erro ao tentar fazer busca de usuario ");
+                throw new Exception("Ocoreu um erro ao tentar fazer busca de usuario ");
             }
 
             return usuario;

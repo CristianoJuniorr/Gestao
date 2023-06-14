@@ -97,40 +97,46 @@ namespace DAL
         public List<Cliente> BuscarPorNome(string _nomeCliente)
         {
             List<Cliente> clienteList = new List<Cliente>();
-            Cliente cliente;
-            SqlConnection cn = new SqlConnection();
-            SqlCommand cmd = new SqlCommand();
+            Cliente cliente = new Cliente();
+            SqlConnection cn = new SqlConnection(Conexao.StringDeConexao);
+            
 
             try
             {
-                cn.ConnectionString = Conexao.StringDeConexao;
+                SqlCommand cmd = new SqlCommand();
                 cmd.Connection = cn;
                 cmd.CommandText = @"SELECT Id, Nome, CPF, RG, Email, Telefone FROM Cliente WHERE Nome like @Nome";
-                cmd.Parameters.AddWithValue("@NomeUsuario", "%"+_nomeCliente+"%");
+                cmd.Parameters.AddWithValue("@Nome", "%"+_nomeCliente+"%");
                 cmd.CommandType = System.Data.CommandType.Text;
                 cn.Open();
                 using (SqlDataReader rd = cmd.ExecuteReader())
                 {
-                    if (rd.Read())
+                    while (rd.Read())
                     {
                         cliente = new Cliente();
-                        cliente.Id = Convert.ToInt32(rd["Id"]);
+                        cliente.Id = (int)rd["Id"];
                         cliente.Nome = rd["Nome"].ToString();
                         cliente.CPF = rd["CPF"].ToString();
                         cliente.RG = rd["RG"].ToString();
                         cliente.Email = rd["Email"].ToString();
-                        cliente.Telefone = rd["Telfone"].ToString();
-                    }
+                        cliente.Telefone = rd["Telefone"].ToString();
 
+                        clienteList.Add(cliente);
+                    }
+                    return clienteList;
                 }
             }
-            catch (Exception ex)
+            catch (Exception )
             {
 
-                throw; new Exception("Ocoreu um erro ao tentar fazer busca por nome de clientes no banco de dados. ");
+                throw new Exception("Ocoreu um erro ao tentar fazer busca por nome de clientes no banco de dados. ");
+            }
+            finally
+            {
+                cn.Close();
             }
 
-            return clienteList;
+            
 
         }
         public Cliente BuscarPorId(int _id)
@@ -187,7 +193,30 @@ namespace DAL
         }
         public void Alterar(Cliente _cliente)
         {
-            
+            SqlConnection cn = new SqlConnection(Conexao.StringDeConexao);
+            try
+            {
+                SqlCommand cmd = cn.CreateCommand();
+                cmd.CommandText = @"UPDATE Cliente SET Nome = @Nome, CPF = @CPF, RG = @RG, Email = @Email, Telefone = @ Telefone, Where Id = @Id";
+                cmd.CommandType = System.Data.CommandType.Text;
+
+                cmd.Parameters.AddWithValue("@Id", _cliente.Id);
+                cmd.Parameters.AddWithValue("@Nome", _cliente.Nome);
+                cmd.Parameters.AddWithValue("@CPF", _cliente.CPF);
+                cmd.Parameters.AddWithValue("@RG", _cliente.RG);
+                cmd.Parameters.AddWithValue("@Email", _cliente.Email);
+                cmd.Parameters.AddWithValue("@Telefone", _cliente.Telefone);
+
+                cmd.Connection = cn;
+                cn.Open();
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception )
+            {
+
+                
+            }
         }
         public void Excluir(int _id)
         {

@@ -35,38 +35,41 @@
             this.buttonBuscarCliente = new System.Windows.Forms.Button();
             this.textBoxConsultarCliente = new System.Windows.Forms.TextBox();
             this.clienteDataGridView = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBoxBuscarPor = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.clienteDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonExcluirCliente
             // 
-            this.buttonExcluirCliente.Location = new System.Drawing.Point(713, 104);
+            this.buttonExcluirCliente.Location = new System.Drawing.Point(873, 103);
             this.buttonExcluirCliente.Name = "buttonExcluirCliente";
             this.buttonExcluirCliente.Size = new System.Drawing.Size(75, 23);
             this.buttonExcluirCliente.TabIndex = 12;
             this.buttonExcluirCliente.Text = "Exlcuir";
             this.buttonExcluirCliente.UseVisualStyleBackColor = true;
+            this.buttonExcluirCliente.Click += new System.EventHandler(this.buttonExcluirCliente_Click);
             // 
             // buttonAlterarCliente
             // 
-            this.buttonAlterarCliente.Location = new System.Drawing.Point(632, 104);
+            this.buttonAlterarCliente.Location = new System.Drawing.Point(792, 103);
             this.buttonAlterarCliente.Name = "buttonAlterarCliente";
             this.buttonAlterarCliente.Size = new System.Drawing.Size(75, 23);
             this.buttonAlterarCliente.TabIndex = 11;
             this.buttonAlterarCliente.Text = "Alterar";
             this.buttonAlterarCliente.UseVisualStyleBackColor = true;
+            this.buttonAlterarCliente.Click += new System.EventHandler(this.buttonAlterarCliente_Click);
             // 
             // buttonAdicionarCliente
             // 
-            this.buttonAdicionarCliente.Location = new System.Drawing.Point(540, 103);
+            this.buttonAdicionarCliente.Location = new System.Drawing.Point(700, 102);
             this.buttonAdicionarCliente.Name = "buttonAdicionarCliente";
             this.buttonAdicionarCliente.Size = new System.Drawing.Size(86, 23);
             this.buttonAdicionarCliente.TabIndex = 10;
@@ -76,7 +79,7 @@
             // 
             // buttonBuscarCliente
             // 
-            this.buttonBuscarCliente.Location = new System.Drawing.Point(459, 103);
+            this.buttonBuscarCliente.Location = new System.Drawing.Point(619, 102);
             this.buttonBuscarCliente.Name = "buttonBuscarCliente";
             this.buttonBuscarCliente.Size = new System.Drawing.Size(75, 23);
             this.buttonBuscarCliente.TabIndex = 9;
@@ -86,9 +89,9 @@
             // 
             // textBoxConsultarCliente
             // 
-            this.textBoxConsultarCliente.Location = new System.Drawing.Point(15, 104);
+            this.textBoxConsultarCliente.Location = new System.Drawing.Point(217, 104);
             this.textBoxConsultarCliente.Name = "textBoxConsultarCliente";
-            this.textBoxConsultarCliente.Size = new System.Drawing.Size(438, 22);
+            this.textBoxConsultarCliente.Size = new System.Drawing.Size(396, 22);
             this.textBoxConsultarCliente.TabIndex = 8;
             // 
             // clienteDataGridView
@@ -110,18 +113,8 @@
             this.clienteDataGridView.ReadOnly = true;
             this.clienteDataGridView.RowHeadersWidth = 51;
             this.clienteDataGridView.RowTemplate.Height = 24;
-            this.clienteDataGridView.Size = new System.Drawing.Size(776, 340);
+            this.clienteDataGridView.Size = new System.Drawing.Size(936, 340);
             this.clienteDataGridView.TabIndex = 13;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(239, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(304, 42);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "Consultar Cliente";
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -172,11 +165,35 @@
             // 
             this.clienteBindingSource.DataSource = typeof(Models.Cliente);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(239, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(304, 42);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Consultar Cliente";
+            // 
+            // comboBoxBuscarPor
+            // 
+            this.comboBoxBuscarPor.FormattingEnabled = true;
+            this.comboBoxBuscarPor.Items.AddRange(new object[] {
+            "Id ",
+            "Nome ",
+            "CPF",
+            "Todos"});
+            this.comboBoxBuscarPor.Location = new System.Drawing.Point(26, 101);
+            this.comboBoxBuscarPor.Name = "comboBoxBuscarPor";
+            this.comboBoxBuscarPor.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxBuscarPor.TabIndex = 15;
+            // 
             // FormConsultarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 489);
+            this.ClientSize = new System.Drawing.Size(960, 523);
+            this.Controls.Add(this.comboBoxBuscarPor);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.clienteDataGridView);
             this.Controls.Add(this.buttonExcluirCliente);
@@ -186,6 +203,7 @@
             this.Controls.Add(this.textBoxConsultarCliente);
             this.Name = "FormConsultarCliente";
             this.Text = "FormConsultarCliente";
+            this.Load += new System.EventHandler(this.FormConsultarCliente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.clienteDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -208,5 +226,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBoxBuscarPor;
     }
 }

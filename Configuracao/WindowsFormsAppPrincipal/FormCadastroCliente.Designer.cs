@@ -139,6 +139,7 @@
             this.cPFTextBox.Name = "cPFTextBox";
             this.cPFTextBox.Size = new System.Drawing.Size(257, 22);
             this.cPFTextBox.TabIndex = 10;
+           
             // 
             // label1
             // 

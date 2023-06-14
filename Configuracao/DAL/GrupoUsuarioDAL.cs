@@ -272,10 +272,10 @@ namespace DAL
                 }
                 return grupoUsuarios;
             }
-            catch (Exception ex)
+            catch (Exception )
             {
 
-                throw; new Exception("Ocorreu um erro ao tentar fazer à busca de um grupo.  ");
+                throw new Exception("Ocorreu um erro ao tentar fazer à busca de um grupo.  ");
             }
 
            
@@ -311,10 +311,10 @@ namespace DAL
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception )
             {
 
-                throw; new Exception("Ocorreu um erro ao tentar fazer busca de Descrição. ");
+                throw new Exception("Ocorreu um erro ao tentar fazer busca de Descrição. ");
             }
 
             return grupoUsuario;
@@ -352,7 +352,7 @@ namespace DAL
                 return grupoUsuarios;
 
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 // Console.WriteLine(String.Format("Ocorreu o seguinte erro: {0} ao tentar buscar no banco "));
 

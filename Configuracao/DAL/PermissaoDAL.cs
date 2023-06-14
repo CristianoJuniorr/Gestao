@@ -137,10 +137,10 @@ namespace DAL
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception )
             {
 
-                throw; new Exception("Ocorreu um erro ao tentar buscar uma permissão. ");
+                throw new Exception("Ocorreu um erro ao tentar buscar uma permissão. ");
             }
 
             return permissao;
@@ -213,10 +213,10 @@ namespace DAL
                 }
                 return permissaos;
             }
-            catch (Exception ex)
+            catch (Exception )
             {
 
-                throw; new Exception("Ocorreu um erro ao tentar fazer à busca de uma permissão.  ");
+                throw new Exception("Ocorreu um erro ao tentar fazer à busca de uma permissão.  ");
             }
 
 
@@ -249,7 +249,7 @@ namespace DAL
                 }
 
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 // Console.WriteLine(String.Format("Ocorreu o seguinte erro: {0} ao tentar buscar no banco "));
 

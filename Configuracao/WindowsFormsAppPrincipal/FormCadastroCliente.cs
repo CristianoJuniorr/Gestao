@@ -14,9 +14,11 @@ namespace WindowsFormsAppPrincipal
 {
     public partial class FormCadastroCliente : Form
     {
-        public FormCadastroCliente()
+        int id;
+        public FormCadastroCliente(int _id = 0)
         {
             InitializeComponent();
+            id = _id;
         }
 
         private void buttonSalvarCliente_Click(object sender, EventArgs e)
@@ -25,6 +27,10 @@ namespace WindowsFormsAppPrincipal
             {
                 Cliente cliente = (Cliente)clienteBindingSource.Current;
                 clienteBindingSource.EndEdit();
+                if (id == 0)
+                    new ClienteBLL().Inserir(cliente);
+                else
+                    new ClienteBLL().ALterar(cliente);
                 new ClienteBLL().Inserir(cliente);
                 MessageBox.Show("Registro salvo com sucesso!");
                 this.Close();
@@ -32,7 +38,7 @@ namespace WindowsFormsAppPrincipal
             catch (Exception ex)
             {
 
-                throw;
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -45,13 +51,18 @@ namespace WindowsFormsAppPrincipal
         {
             try
             {
-                clienteBindingSource.AddNew();
+                if (id == 0)
+                    clienteBindingSource.AddNew();
+                else
+                    clienteBindingSource.DataSource = new ClienteBLL().BuscarPorId(id);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                MessageBox.Show(ex.Message);
             }
         }
+
+
     }
 }
