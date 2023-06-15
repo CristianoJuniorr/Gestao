@@ -31,7 +31,7 @@ namespace WindowsFormsAppPrincipal
                     new ClienteBLL().Inserir(cliente);
                 else
                     new ClienteBLL().ALterar(cliente);
-                new ClienteBLL().Inserir(cliente);
+
                 MessageBox.Show("Registro salvo com sucesso!");
                 this.Close();
             }

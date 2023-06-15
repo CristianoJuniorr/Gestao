@@ -2,8 +2,10 @@
 using Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -189,7 +191,52 @@ namespace DAL
         }
         public Cliente BuscarPorCPF(string _CPF)
         {
-            return null ;
+
+            SqlConnection cn = new SqlConnection();
+            
+            Cliente cliente = new Cliente();
+
+            try
+
+            {
+                SqlCommand cmd = new SqlCommand();
+                cn.ConnectionString = Conexao.StringDeConexao;
+                cmd.Connection = cn;
+                cmd.CommandText = @"SELECT Id, Nome, CPF, RG, Email, Telefone FROM Cliente WHERE CPF = @CPF";
+                cmd.Parameters.AddWithValue("@CPF", _CPF);
+                cmd.CommandType = System.Data.CommandType.Text;
+                cn.Open();
+
+                using (SqlDataReader rd = cmd.ExecuteReader())
+                {
+                    while (rd.Read())
+                    {
+                        cliente = new Cliente();
+                        cliente.Id = (int)rd["Id"];
+                        cliente.Nome = rd["Nome"].ToString();
+                        cliente.CPF = rd["CPF"].ToString();
+                        cliente.RG = rd["RG"].ToString();
+                        cliente.Email = rd["Email"].ToString();
+                        cliente.Telefone = rd["Telefone"].ToString();
+
+
+
+
+                    }
+                }
+                return cliente;
+
+            }
+            catch (Exception ex)
+            {
+                // Console.WriteLine(String.Format("Ocorreu o seguinte erro: {0} ao tentar buscar no banco "));
+
+                throw new Exception("Ocorreu um erro ao tentar buscar um usuário: ", ex);
+            }
+            finally
+            {
+                cn.Close();
+            }
         }
         public void Alterar(Cliente _cliente)
         {
@@ -197,7 +244,7 @@ namespace DAL
             try
             {
                 SqlCommand cmd = cn.CreateCommand();
-                cmd.CommandText = @"UPDATE Cliente SET Nome = @Nome, CPF = @CPF, RG = @RG, Email = @Email, Telefone = @ Telefone, Where Id = @Id";
+                cmd.CommandText = @"UPDATE Cliente SET Nome = @Nome, CPF = @CPF, RG = @RG, Email = @Email, Telefone = @Telefone Where Id = @Id";
                 cmd.CommandType = System.Data.CommandType.Text;
 
                 cmd.Parameters.AddWithValue("@Id", _cliente.Id);
@@ -220,8 +267,27 @@ namespace DAL
         }
         public void Excluir(int _id)
         {
+            SqlConnection cn = new SqlConnection(Conexao.StringDeConexao);
+            try
+            {
+                SqlCommand cmd = cn.CreateCommand();
+                cmd.CommandText = @"DELETE FROM Cliente WHERE id = @id";
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Parameters.AddWithValue("@id", _id);
+                cmd.Connection = cn;
+                cn.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
 
-        }
+                throw new Exception("Ocorreu um erro ao tentar apagar um Cliente do banco de dados.",ex);
+            }
+            finally
+            {
+                cn.Close();
+            }
+                }
         
     }
 }

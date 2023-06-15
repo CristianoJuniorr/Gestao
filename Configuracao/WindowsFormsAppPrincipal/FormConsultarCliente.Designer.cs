@@ -43,6 +43,9 @@
             this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxBuscarPor = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.buttonSelecionarConsultaCliente = new System.Windows.Forms.Button();
+            this.buttonCancelarConsultaCliente = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.clienteDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -89,9 +92,9 @@
             // 
             // textBoxConsultarCliente
             // 
-            this.textBoxConsultarCliente.Location = new System.Drawing.Point(217, 104);
+            this.textBoxConsultarCliente.Location = new System.Drawing.Point(139, 104);
             this.textBoxConsultarCliente.Name = "textBoxConsultarCliente";
-            this.textBoxConsultarCliente.Size = new System.Drawing.Size(396, 22);
+            this.textBoxConsultarCliente.Size = new System.Drawing.Size(474, 22);
             this.textBoxConsultarCliente.TabIndex = 8;
             // 
             // clienteDataGridView
@@ -183,16 +186,48 @@
             "Nome ",
             "CPF",
             "Todos"});
-            this.comboBoxBuscarPor.Location = new System.Drawing.Point(26, 101);
+            this.comboBoxBuscarPor.Location = new System.Drawing.Point(12, 103);
             this.comboBoxBuscarPor.Name = "comboBoxBuscarPor";
             this.comboBoxBuscarPor.Size = new System.Drawing.Size(121, 24);
             this.comboBoxBuscarPor.TabIndex = 15;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 84);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(75, 16);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Buscar por ";
+            // 
+            // buttonSelecionarConsultaCliente
+            // 
+            this.buttonSelecionarConsultaCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSelecionarConsultaCliente.Location = new System.Drawing.Point(688, 485);
+            this.buttonSelecionarConsultaCliente.Name = "buttonSelecionarConsultaCliente";
+            this.buttonSelecionarConsultaCliente.Size = new System.Drawing.Size(110, 32);
+            this.buttonSelecionarConsultaCliente.TabIndex = 17;
+            this.buttonSelecionarConsultaCliente.Text = "Selecionar";
+            this.buttonSelecionarConsultaCliente.UseVisualStyleBackColor = true;
+            // 
+            // buttonCancelarConsultaCliente
+            // 
+            this.buttonCancelarConsultaCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancelarConsultaCliente.Location = new System.Drawing.Point(821, 488);
+            this.buttonCancelarConsultaCliente.Name = "buttonCancelarConsultaCliente";
+            this.buttonCancelarConsultaCliente.Size = new System.Drawing.Size(112, 29);
+            this.buttonCancelarConsultaCliente.TabIndex = 18;
+            this.buttonCancelarConsultaCliente.Text = "Cancelar";
+            this.buttonCancelarConsultaCliente.UseVisualStyleBackColor = true;
             // 
             // FormConsultarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(960, 523);
+            this.Controls.Add(this.buttonCancelarConsultaCliente);
+            this.Controls.Add(this.buttonSelecionarConsultaCliente);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBoxBuscarPor);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.clienteDataGridView);
@@ -227,5 +262,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBoxBuscarPor;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button buttonSelecionarConsultaCliente;
+        private System.Windows.Forms.Button buttonCancelarConsultaCliente;
     }
 }

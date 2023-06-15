@@ -23,7 +23,30 @@ namespace WindowsFormsAppPrincipal
         {
             try
             {
-                clienteBindingSource.DataSource = new ClienteBLL().BuscarPorNome(textBoxConsultarCliente.Text);
+                switch (comboBoxBuscarPor.SelectedIndex)
+                {
+                    case 0:
+                        if (String.IsNullOrEmpty(textBoxConsultarCliente.Text))
+                            throw new Exception("Informe um id para fazer a busca.");
+
+                        clienteBindingSource.DataSource = new ClienteBLL().BuscarPorId(Convert.ToInt32(textBoxConsultarCliente.Text));
+                        break;
+
+                    case 1:
+                        clienteBindingSource.DataSource = new ClienteBLL().BuscarPorNome(textBoxConsultarCliente.Text);
+                        break;
+
+                    case 2: 
+                        clienteBindingSource.DataSource = new ClienteBLL().BuscarPorCPF(textBoxConsultarCliente.Text);
+                        break;
+
+                    case 3:
+                        clienteBindingSource.DataSource = new ClienteBLL().BuscarTodos();
+                        break;
+                    default:
+                        break;
+                }
+                
             }
             catch (Exception ex)
             {
@@ -54,6 +77,11 @@ namespace WindowsFormsAppPrincipal
                     MessageBox.Show("Não existe registro para ser excluído");
                     return;
                 }
+
+                if (MessageBox.Show("Deseja realmente excluir este registro?", "Atenção", MessageBoxButtons.YesNo) == DialogResult.No)
+                    return;
+
+
                 new ClienteBLL().Excluir(((Cliente)clienteBindingSource.Current).Id);
                 clienteBindingSource.RemoveCurrent();
             }
@@ -80,10 +108,10 @@ namespace WindowsFormsAppPrincipal
                 }
                 buttonBuscarCliente_Click(null, null);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                MessageBox.Show(ex.Message);
             }
         }
     }
