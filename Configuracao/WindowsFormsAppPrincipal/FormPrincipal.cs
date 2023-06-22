@@ -44,5 +44,14 @@ namespace WindowsFormsAppPrincipal
 
             }
         }
+
+        private void fornecedoresToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            using (FormConsultarFornecedor frm = new FormConsultarFornecedor())
+            {
+                frm.ShowDialog();
+
+            }
+        }
     }
 }
