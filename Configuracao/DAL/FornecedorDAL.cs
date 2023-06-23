@@ -117,7 +117,7 @@ namespace DAL
                         fornecedor.Nome = rd["Nome"].ToString();
                         fornecedor.Telefone = rd["Telefone"].ToString();
                         fornecedor.Email = rd["Email"].ToString();
-                        fornecedor.Site = rd["Site"].ToString();
+                        fornecedor.Site = rd["Sites"].ToString();
 
 
 
@@ -259,7 +259,7 @@ namespace DAL
             try
             {
                 SqlCommand cmd = cn.CreateCommand();
-                cmd.CommandText = @"DELETE FROM Fonecedor WHERE id = @id";
+                cmd.CommandText = @"DELETE FROM Fornecedor WHERE id = @id";
                 cmd.CommandType = System.Data.CommandType.Text;
                 cmd.Parameters.AddWithValue("@id", _id);
                 cmd.Connection = cn;

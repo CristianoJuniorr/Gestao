@@ -1,4 +1,5 @@
 ﻿using BLL;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -61,8 +62,53 @@ namespace WindowsFormsAppPrincipal
 
             }
         }
-        
 
-      
+        private void buttonAlterarFornecedor_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                if (fornecedorBindingSource.Count == 0)
+                {
+                    MessageBox.Show("Não existe fornecedor para ser alterado.");
+                    return;
+                }
+                int id = ((Fornecedor)fornecedorBindingSource.Current).Id;
+                using (FormCadastroFornecedor frm = new FormCadastroFornecedor(id))
+                {
+                    frm.ShowDialog();
+                }
+                buttonBuscarFornecedor_Click(null, null);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void buttonExcluirFornecedor_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (fornecedorBindingSource.Count <= 0)
+                {
+                    MessageBox.Show("Não existe registro para ser excluído");
+                    return;
+                }
+
+                if (MessageBox.Show("Deseja realmente excluir este registro?", "Atenção", MessageBoxButtons.YesNo) == DialogResult.No)
+                    return;
+
+
+                new FornecedorBLL().Excluir(((Fornecedor)fornecedorBindingSource.Current).Id);
+                fornecedorBindingSource.RemoveCurrent();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }
